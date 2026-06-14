@@ -18,12 +18,29 @@ affiliated with or endorsed by Roblox Corporation.
 
 ## What is derived vs. original
 
-- The `skill/references/*.md` files are **original distillations/summaries** written from the CC BY 4.0
-  documentation. Per CC BY 4.0, attribution is given here to Roblox Corporation as the source.
-- The `skill/api/*.txt` indexes are copies of Roblox's published `llms.txt` index files.
-- `skill/api/api-cheatsheet.md` is generated from the community API dump.
-- Raw upstream content (under `data/raw/`, gitignored) is **not** redistributed in this repo; it is
-  reproducible via `skill/scripts/update_docs.sh`.
+**Derived from Roblox creator-docs (CC BY 4.0 — attributed to Roblox Corporation):**
+- The 12 core `skill/references/*.md` deep-dives (luau-language, engine-scripting-model,
+  studio-workflow, ui-ux, physics-parts-world, data-and-cloud-services, networking-and-security,
+  performance-optimization, avatar-animation-audio-vfx, monetization-publishing, open-cloud-and-mcp,
+  sharp-edges) are **original summaries/distillations** of the CC BY 4.0 documentation.
+
+**Redistributed from Roblox (© Roblox Corporation):**
+- `skill/api/engine-api-index.txt`, `docs-index.txt`, `cloud-api-index.txt` are copies of Roblox's
+  published `llms.txt` index files.
+
+**Generated:**
+- `skill/api/api-cheatsheet.md` is generated from the community Roblox-Client-Tracker API dump.
+
+**Original authored content (MIT, © the repository author — see LICENSE):**
+- `skill/SKILL.md`, the scripts under `skill/scripts/`, `skill/guides/SETUP.md`, all of
+  `skill/templates/` and `skill/workflows/`, and the reference guides `architecture-patterns.md`,
+  `game-design-roblox.md`, `testing-patterns.md`, `combat-systems.md`, `inventory-systems.md`.
+  These are original instructional prose and example code; they describe Roblox platform behavior but
+  are not copied from Roblox's documentation.
+
+**Not redistributed:**
+- Raw upstream content (under `data/raw/`, gitignored) — the full creator-docs clone and API dumps —
+  is **not** included in this repo; it is reproducible via `skill/scripts/update_docs.sh`.
 
 ## CC BY 4.0
 

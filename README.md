@@ -1,12 +1,19 @@
 # roblox-dev-skill
 
-A private, self-contained **Claude Code skill** that turns the assistant into an expert Roblox
-creator — distilled from the *complete* official Roblox creator documentation, plus the machine-readable
-Engine API dump and Open Cloud REST surface.
+A self-contained **Claude Code skill** that makes the assistant think and work like a **senior Roblox
+game developer** — distilled from the *complete* official Roblox creator documentation, plus the
+machine-readable Engine API dump and Open Cloud REST surface, with genre build templates and audit
+workflows.
 
 The goal: maximum Roblox knowledge at minimum token cost. The full docs are analyzed and compressed into a
 lean router + focused reference files (progressive disclosure), with current API indexes committed for offline
-lookup and an update script to re-pull when Roblox ships changes.
+lookup and an update script to re-pull when Roblox ships changes. When connected to Roblox Studio via MCP,
+the skill doesn't just write code — it builds, runs, reads the console, and fixes until the feature works.
+
+> **License:** MIT for original content · portions derived from Roblox creator-docs under CC BY 4.0.
+> See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
+> **Not affiliated with or endorsed by Roblox Corporation.** "Roblox", "Roblox Studio", and "Luau" are
+> trademarks of Roblox Corporation.
 
 ## What's inside
 
@@ -74,6 +81,16 @@ Roblox updates the engine ~weekly. Run `./skill/scripts/update_docs.sh` to refre
 indexes and cheat-sheet. Re-distill the prose references only after a major platform change.
 
 ## Attribution & license
-Derived from Roblox **creator-docs** — documentation content licensed **CC BY 4.0**, code **MIT**
-(© Roblox Corporation). See [NOTICE.md](NOTICE.md). The Engine API dump comes from the community
-**Roblox-Client-Tracker**. This repository is a private derivative for personal development use.
+- **Original content** (SKILL.md, scripts, templates, workflows, the hand-authored reference guides) —
+  **MIT**, see [LICENSE](LICENSE).
+- **Derived/redistributed from Roblox creator-docs** (the 12 core reference distillations and the
+  `api/*.txt` indexes) — documentation content © Roblox Corporation, licensed **CC BY 4.0**.
+- The Engine API dump (`api-cheatsheet.md` source) comes from the community **Roblox-Client-Tracker**.
+- Full breakdown of what is original vs. derived: [NOTICE.md](NOTICE.md).
+
+Not affiliated with or endorsed by Roblox Corporation. Provided "as is" with no warranty.
+
+## Contributing / using
+Clone it, symlink `skill/` into `~/.claude/skills/`, and you're set (see
+[skill/guides/SETUP.md](skill/guides/SETUP.md)). Issues and PRs welcome. Run
+`./skill/scripts/update_docs.sh` to refresh against the latest engine release.
