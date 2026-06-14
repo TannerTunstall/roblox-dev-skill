@@ -12,7 +12,7 @@ lookup and an update script to re-pull when Roblox ships changes.
 
 ```
 skill/
-  SKILL.md                     # lean router + non-negotiables + API lookup protocol (the entry point)
+  SKILL.md                     # senior-dev router: mindset, execution loop, routing, non-negotiables
   references/                  # dense, token-efficient deep-dives (loaded on demand)
     luau-language.md           #   Luau: types, tables/metatables, OOP, task lib, perf idioms, quirks
     engine-scripting-model.md  #   DataModel, services, scripts/RunContext, replication, events, Actors
@@ -24,8 +24,20 @@ skill/
     performance-optimization.md#   budgets, profiling, rendering, streaming, memory leaks, triage table
     avatar-animation-audio-vfx.md # Humanoid, animation, avatars, audio, particles/VFX
     monetization-publishing.md #   passes/products/receipts/subs, publishing, analytics, moderation, i18n
-    open-cloud-and-mcp.md      #   Studio MCP (built-in + legacy) and Open Cloud REST
+    open-cloud-and-mcp.md      #   Studio MCP (built-in + legacy) + capability→tool map + Open Cloud REST
     sharp-edges.md             #   cross-cutting gotchas — scan when something's mysteriously broken
+    architecture-patterns.md   #   senior structure: service/module patterns, init, anti-patterns
+    game-design-roblox.md      #   core loop, progression, retention, monetization design
+    combat-systems.md          #   weapons, damage, hit detection (server-authoritative)
+    inventory-systems.md       #   items, equipment, stacking, persistence
+    testing-patterns.md        #   verification, TestEZ-style specs, integration testing
+  templates/                   # build-a-game scaffolds (loaded when building)
+    game-scaffold.md           #   universal base: DataManager (pcall/UpdateAsync/session-lock/BindToClose), remotes, loading
+    genre-{simulator,tycoon,obby,rpg,horror,battle-royale}.md  # genre-specific systems
+  workflows/                   # opinionated multi-step procedures (loaded by task)
+    new-game.md                #   genre→scope→architecture→scaffold→systems→MCP build/test/fix→summary
+    debug-loop.md  code-review.md  security-audit.md  performance-audit.md
+    monetization-audit.md  publish-checklist.md
   api/                         # current, committed lookup indexes (offline)
     engine-api-index.txt       #   every class/enum/datatype/global/library, one-line summaries (llms.txt)
     api-cheatsheet.md          #   concrete member signatures for high-traffic classes (generated)
@@ -52,6 +64,10 @@ Invoke with `/roblox-dev` or just describe a Roblox task.
    (886 classes / 588 enums) and the live `llms.txt` indexes.
 2. Analyzed the corpus and fanned out per-topic distillation into the dense `references/` files.
 3. Generated the offline API cheat-sheet from the dump; committed the compact indexes.
+4. Merged in genre templates, audit workflows, and senior-thinking references (architecture,
+   game design, testing, combat, inventory) from the prior `roblox-game` skill — remapping all
+   cross-links, reconciling MCP tool names to the verified toolset, and sanity-checking every link,
+   code fence, and idiom.
 
 ## Keeping current
 Roblox updates the engine ~weekly. Run `./skill/scripts/update_docs.sh` to refresh the committed

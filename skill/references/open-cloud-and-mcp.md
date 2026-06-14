@@ -44,6 +44,23 @@ The exact set depends on which server you connect. Detect what's available befor
 
 **Built-in / full server adds (names seen in Roblox's own Assistant skills):** `execute_luau`, `screen_capture`, `list_roblox_studios`, `set_active_studio`, `http_get` (fetch API docs as markdown), `subagent`. Community servers may add `get_file_tree`, `grep_scripts`, `create_build`.
 
+### Canonical capability → tool map (with fallbacks)
+**Never call a tool that isn't in the connected server.** Probe the available tool list first, then pick the row's available option. Community-only tools (★) often don't exist — fall back to plain Luau via `execute_luau`/`run_code`.
+
+| Capability | Built-in / Standard (always prefer) | Community alias ★ | Offline fallback |
+|---|---|---|---|
+| Run Luau | `execute_luau` or `run_code` | — | output copy-paste script |
+| Read/write a script's `.Source` | `execute_luau` reading/setting `script.Source` | `get_script_source` / `set_script_source` ★ | output full script + placement |
+| Walk the instance tree | `execute_luau` recursive `:GetChildren()` print | `get_file_tree` / `search_objects` ★ | describe expected tree |
+| Search script text | `execute_luau` loop over scripts + `string.find` | `grep_scripts` ★ | n/a |
+| Start/stop a playtest | `start_stop_play` (+ `run_script_in_play_mode`) | `start_playtest` / `stop_playtest` ★ | manual F5 checklist |
+| Read errors after a run | `get_console_output` | `get_playtest_output` ★ | ask user to paste Output |
+| See the UI/viewport | `screen_capture` | — | ask user for a screenshot |
+| Insert a model | `insert_model` | — | link Creator Store asset |
+| Current mode | `get_studio_mode` | — | ask user |
+
+Rule of thumb: anything a community tool does, **plain Luau through `execute_luau` can also do** — prefer that so the workflow runs on any server. The templates/workflows mention ★ names under "Full mode"; treat them as optional accelerators, not requirements.
+
 ### MCP working loop (interact → verify)
 1. `execute_luau` / `run_code` to inspect or mutate the DataModel — **one call per logical step** to avoid races.
 2. `screen_capture` to verify visual result (the only way to see PlayerGui during Play mode).
