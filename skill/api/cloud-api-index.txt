@@ -1,0 +1,264 @@
+<!-- Last updated: 2026-06-11T23:12:12Z -->
+
+# Roblox Open Cloud API Reference
+
+> REST API reference for Roblox Cloud APIs — used for server-side integrations, automation, and external tooling outside of Roblox experiences.
+
+---
+
+> **WRONG FILE FOR IN-EXPERIENCE SCRIPTING**
+> This is the **Cloud REST API** — for external servers, CI/CD pipelines, and tooling that call Roblox from outside a running experience.
+> - For scripting *inside* a Roblox experience (Luau/Studio) → use: https://create.roblox.com/docs/reference/engine/llms.txt
+
+---
+
+## Quick Start
+
+**Base URLs:**
+
+| API type | Base URL | Auth |
+|----------|----------|------|
+| Open Cloud endpoints | `https://apis.roblox.com` | API Key or OAuth 2.0 |
+| Domain endpoints | `https://{domain}.roblox.com` (e.g. `games`, `users`, `economy`) | Varies per endpoint |
+
+> The docs site lives at `https://create.roblox.com` — do NOT use that as the API base URL.
+
+**"On Open Cloud"** means the endpoint supports **API key or OAuth 2.0** authentication. These endpoints are recommended. Endpoints not on Open Cloud may use cookie authentication instead.
+
+**Authentication (match to endpoint requirements):**
+
+| Method | Header / Cookie | Env variable | When to use |
+|--------|----------------|--------------|-------------|
+| API Key | `x-api-key: <key>` | `ROBLOX_API_KEY` | Endpoints on Open Cloud (most common) |
+| OAuth 2.0 | `Authorization: Bearer <token>` | `ROBLOX_ACCESS_TOKEN` | Endpoints on Open Cloud with user-delegated scopes |
+| Cookie | `Cookie: .ROBLOSECURITY=<cookie>` | `ROBLOSECURITY` | Endpoints not on Open Cloud |
+
+Get API keys at: https://create.roblox.com/dashboard/credentials
+
+**Raw OpenAPI spec** (for MCP tools): https://create.roblox.com/docs/cloud/openapi.json
+
+---
+
+## Error Reference
+
+| Status | Meaning | Action |
+|--------|---------|--------|
+| `401` | Missing or invalid API key | Check `x-api-key` header and key scope |
+| `403` | Key valid but lacks permission | Add the required scope in the dashboard |
+| `404` | Resource not found | Verify universe/place/asset ID |
+| `429` | Rate limited | Retry with exponential backoff (start at 1 s) |
+| `500` | Roblox server error | Retry after a short delay |
+
+---
+
+## Which API Should I Use?
+
+| User wants to... | Use | Example |
+|-----------------|-----|---------|
+| Save/read player data from **inside** a Roblox game | Engine API: `DataStoreService` | `DataStoreService:GetDataStore("Players")` |
+| Save/read player data from an **external** tool/server | Cloud API: [Data stores](/docs/cloud/reference/features/storage.md) | `GET /cloud/v2/universes/{id}/data-stores` |
+| Make HTTP requests from **inside** a Roblox game | Engine API: `HttpService` | `HttpService:GetAsync(url)` |
+| Publish/update an asset from a **CI/CD pipeline** | Cloud API: [Assets](/docs/cloud/reference/features/assets.md) | `POST /assets/v1/assets` |
+| Ban a player from an **external dashboard** | Cloud API: [Bans](/docs/cloud/reference/features/bans-and-blocks.md) | `POST /cloud/v2/universes/{id}/user-restrictions` |
+| Send a notification to players | Cloud API: [Notifications](/docs/cloud/reference/features/notifications.md) | `POST /cloud/v2/universes/{id}/notifications` |
+| Query game analytics or user data | Cloud API: check Features, then Domains | `GET https://games.roblox.com/v1/games/...` |
+
+> **Prefer endpoints on Open Cloud** (those supporting API key or OAuth 2.0). When multiple endpoints serve the same purpose, choose the one on Open Cloud.
+
+---
+
+## Instructions for Code Agents
+
+When a user asks you to interact with Roblox APIs, follow this workflow:
+
+1. **Search Features first, then Domains**: Read the feature `.md` files listed in the Features section below. Features are organized by use case. If you cannot find the endpoint there, expand your search to the Domain pages.
+2. **Prioritize Open Cloud endpoints**: When multiple endpoints can accomplish the same task, prefer the one that supports API key or OAuth 2.0 authentication (on Open Cloud).
+3. **Authenticate**: Each endpoint's docs specify which auth methods it supports (API Key, OAuth 2.0, Cookie). Match the endpoint's requirements to available credentials:
+   a. **Check the environment first** — look for these common variables before asking the user:
+      - `ROBLOX_API_KEY` → use as `x-api-key` header (endpoints on Open Cloud)
+      - `ROBLOX_ACCESS_TOKEN` → use as `Authorization: Bearer` header (OAuth 2.0)
+      - `ROBLOSECURITY` → use as `.ROBLOSECURITY` cookie (endpoints not on Open Cloud)
+   b. **Match credential to endpoint** — if the endpoint requires cookie auth and you only have an API key, do not force the API key on that endpoint. Check if a cookie credential is also available, and vice versa.
+   c. **Only ask the user if no matching credential is found** — after checking the environment, if you don't have the right credential type for the endpoint, then ask.
+4. **Construct the request**: Base URL is `https://apis.roblox.com` for Open Cloud endpoints. For domain endpoints, use `https://{domain}.roblox.com`. Replace path placeholders like `{universeId}` with the user's actual IDs.
+5. **Handle responses**: Parse response fields per the `.md` file. Use the error table above for non-2xx codes.
+6. **Handle pagination**: List endpoints return `nextPageToken`. Pass it as `?pageToken=<value>` in the next request. Stop when `nextPageToken` is absent or empty.
+
+---
+
+## Common Workflows
+
+**Upload an asset (image/model/audio):**
+```
+POST https://apis.roblox.com/assets/v1/assets
+  Content-Type: multipart/form-data
+  x-api-key: <key>
+  Body: file + JSON metadata
+
+→ returns { operationId: "..." }
+
+GET https://apis.roblox.com/assets/v1/operations/{operationId}
+  Poll until: { done: true, response: { assetId: "..." } }
+```
+
+**Read a data store entry:**
+```
+GET https://apis.roblox.com/cloud/v2/universes/{universeId}/data-stores
+  → find data store name
+
+GET https://apis.roblox.com/cloud/v2/universes/{universeId}/data-stores/{storeId}/entries/{entryId}
+  → returns { value: ..., etag: "..." }
+```
+
+**Update a data store entry (with optimistic concurrency):**
+```
+GET .../entries/{entryId}          → get current value + etag
+PATCH .../entries/{entryId}
+  If-Match: <etag>                  ← prevents overwriting concurrent writes
+  Body: { value: <newValue> }
+```
+
+**Publish a place:**
+```
+POST https://apis.roblox.com/cloud/v2/universes/{universeId}/places/{placeId}/versions
+  Content-Type: application/octet-stream
+  x-api-key: <key>
+  Body: <place file bytes>
+
+→ returns { versionNumber: ... }
+```
+
+---
+
+## Not Available via API
+
+These capabilities are **not exposed** through any REST API. Do not attempt to call undocumented endpoints for them — use the [Creator Dashboard](https://create.roblox.com/dashboard) instead.
+
+- Daily Active Users (DAU), Monthly Active Users (MAU), and engagement analytics
+- Revenue breakdowns, earnings reports, and payout history
+- Moderation history, content review status, and appeal management
+- Experience ratings and review management
+- Team Create collaborator permissions (manage via Studio)
+- Marketplace fee configuration and tax settings
+
+---
+
+## Features
+Endpoints organized by use case. Search here first.
+
+- [Accounts](/docs/cloud/reference/features/accounts.md)
+- [Assets](/docs/cloud/reference/features/assets.md)
+- [Avatars](/docs/cloud/reference/features/avatars.md)
+- [Badges](/docs/cloud/reference/features/badges.md)
+- [Bans and blocks](/docs/cloud/reference/features/bans-and-blocks.md)
+- [Configs](/docs/cloud/reference/features/configs.md)
+- [Connections](/docs/cloud/reference/features/friends.md)
+- [Creator Store](/docs/cloud/reference/features/creator-store.md)
+- [Data and memory stores](/docs/cloud/reference/features/storage.md)
+- [Developer products](/docs/cloud/reference/features/developer-products.md)
+- [Game passes](/docs/cloud/reference/features/game-passes.md)
+- [Generative AI](/docs/cloud/reference/features/generative-ai.md)
+- [Groups](/docs/cloud/reference/features/groups.md)
+- [Interactions](/docs/cloud/reference/features/interactions.md)
+- [Inventories](/docs/cloud/reference/features/inventories.md)
+- [Localization](/docs/cloud/reference/features/localization.md)
+- [Luau Execution](/docs/cloud/reference/features/luau-execution.md)
+- [Matchmaking](/docs/cloud/reference/features/matchmaking.md)
+- [Metadata](/docs/cloud/reference/features/metadata.md)
+- [Notifications](/docs/cloud/reference/features/notifications.md)
+- [Places](/docs/cloud/reference/features/places.md)
+- [Private servers](/docs/cloud/reference/features/private-servers.md)
+- [Sponsored campaigns](/docs/cloud/reference/features/sponsored-campaigns.md)
+- [Team Create](/docs/cloud/reference/features/team-create.md)
+- [Thumbnails](/docs/cloud/reference/features/thumbnails.md)
+- [Trades](/docs/cloud/reference/features/trades.md)
+- [Universes](/docs/cloud/reference/features/universes.md)
+- [User profiles](/docs/cloud/reference/features/user-profiles.md)
+- [Users](/docs/cloud/reference/features/users.md)
+
+## Domains
+Endpoints organized by URL domain. Check here if you cannot find what you need in Features.
+
+- [Account Information Api v1](/docs/cloud/reference/domains/accountinformation.md)
+- [AccountSettings Api v1](/docs/cloud/reference/domains/accountsettings.md)
+- [AdConfiguration Api v2](/docs/cloud/reference/domains/adconfiguration.md)
+- [Asset Delivery Api v1](/docs/cloud/reference/domains/assetdelivery.md)
+- [Authentication Api v1](/docs/cloud/reference/domains/auth.md)
+- [Avatar Api v1](/docs/cloud/reference/domains/avatar.md)
+- [Badges Api v1](/docs/cloud/reference/domains/badges.md)
+- [Catalog Api v1](/docs/cloud/reference/domains/catalog.md)
+- [ClientSettings Api v1](/docs/cloud/reference/domains/clientsettings.md)
+- [Contacts Api v1](/docs/cloud/reference/domains/contacts.md)
+- [Develop Api v1](/docs/cloud/reference/domains/develop.md)
+- [Economy Api v1](/docs/cloud/reference/domains/economy.md)
+- [EngagementPayouts Api v1](/docs/cloud/reference/domains/engagementpayouts.md)
+- [Followings Api v1](/docs/cloud/reference/domains/followings.md)
+- [Friends Api v1](/docs/cloud/reference/domains/friends.md)
+- [GameInternationalization Api v1](/docs/cloud/reference/domains/gameinternationalization.md)
+- [Games Api v1](/docs/cloud/reference/domains/games.md)
+- [Groups Api v1](/docs/cloud/reference/domains/groups.md)
+- [Inventory Api v1](/docs/cloud/reference/domains/inventory.md)
+- [ItemConfiguration Api v1](/docs/cloud/reference/domains/itemconfiguration.md)
+- [Locale Api v1](/docs/cloud/reference/domains/locale.md)
+- [LocalizationTables Api v1](/docs/cloud/reference/domains/localizationtables.md)
+- [Matchmaking Api v1](/docs/cloud/reference/domains/matchmaking.md)
+- [Notifications Api v2](/docs/cloud/reference/domains/notifications.md)
+- [Open Cloud v1 REST APIs](/docs/cloud/reference/domains/apis.md)
+- [PremiumFeatures Api v1](/docs/cloud/reference/domains/premiumfeatures.md)
+- [presence-api](/docs/cloud/reference/domains/presence.md)
+- [PrivateMessages Api v1](/docs/cloud/reference/domains/privatemessages.md)
+- [Publish Api v1](/docs/cloud/reference/domains/publish.md)
+- [Roblox.EconomyCreatorStats.Api v1](/docs/cloud/reference/domains/economycreatorstats.md)
+- [Thumbnails Api v1](/docs/cloud/reference/domains/thumbnails.md)
+- [ThumbnailsResizer Api v1](/docs/cloud/reference/domains/thumbnailsresizer.md)
+- [Trades Api v1](/docs/cloud/reference/domains/trades.md)
+- [TranslationRoles Api v1](/docs/cloud/reference/domains/translationroles.md)
+- [TwoStepVerification Api v1](/docs/cloud/reference/domains/twostepverification.md)
+- [Users Api v1](/docs/cloud/reference/domains/users.md)
+
+## Guides
+
+### Authentication & Authorization
+
+- [Manage API keys](/docs/en-us/cloud/auth/api-keys.md)
+- [OAuth 2.0 app implementation](/docs/en-us/cloud/auth/oauth2-develop.md)
+- [OAuth 2.0 overview](/docs/en-us/cloud/auth/oauth2-overview.md)
+- [OAuth 2.0 authentication](/docs/en-us/cloud/auth/oauth2-reference.md)
+- [OAuth 2.0 app registration](/docs/en-us/cloud/auth/oauth2-registration.md)
+- [OAuth 2.0 sample app](/docs/en-us/cloud/auth/oauth2-sample.md)
+
+### Feature Overviews
+Each links to its API reference (see Features section above).
+
+- [Asset delivery](/docs/en-us/cloud/api/asset-delivery.md)
+- [Asset permissions](/docs/en-us/cloud/api/asset-permissions.md)
+- [Badges](/docs/en-us/cloud/api/badges.md)
+- [Develop](/docs/en-us/cloud/api/develop.md)
+- [Developer products](/docs/en-us/cloud/api/developer-products.md)
+- [Followings](/docs/en-us/cloud/api/followings.md)
+- [Game internationalization](/docs/en-us/cloud/api/game-internationalization.md)
+- [Game passes](/docs/en-us/cloud/api/game-passes.md)
+- [Followings](/docs/en-us/cloud/api/groups.md)
+- [Localization tables](/docs/en-us/cloud/api/localization.md)
+- [Open eval](/docs/en-us/cloud/api/open-eval.md)
+- [Publish](/docs/en-us/cloud/api/publish.md)
+- [Secrets store service](/docs/en-us/cloud/api/secrets-store.md)
+- [Toolbox service](/docs/en-us/cloud/api/toolbox-service.md)
+
+### Implementation Guides
+
+- [Experience configs](/docs/en-us/cloud/guides/configs.md)
+- [Open Cloud data stores](/docs/en-us/cloud/guides/data-stores.md)
+- [Handle Open Cloud data store requests](/docs/en-us/cloud/guides/data-stores/request-handling.md)
+- [Rate limits and throttling](/docs/en-us/cloud/guides/data-stores/throttling.md)
+- [User notifications](/docs/en-us/cloud/guides/experience-notifications.md)
+- [Engine instances](/docs/en-us/cloud/guides/instance.md)
+- [User inventories](/docs/en-us/cloud/guides/inventory.md)
+- [Secrets stores](/docs/en-us/cloud/guides/secrets-store.md)
+- [Usage guide for assets](/docs/en-us/cloud/guides/usage-assets.md)
+- [Messaging usage guide](/docs/en-us/cloud/guides/usage-messaging.md)
+- [Usage guide for place publishing](/docs/en-us/cloud/guides/usage-place-publishing.md)
+- [Automate right to erasure requests](/docs/en-us/cloud/webhooks/automate-right-to-erasure.md)
+- [Webhook notifications](/docs/en-us/cloud/webhooks/webhook-notifications.md)
+
+- [Open Cloud guides](/docs/en-us/cloud/guides.md)

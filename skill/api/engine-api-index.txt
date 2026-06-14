@@ -1,0 +1,1311 @@
+<!-- Last updated: 2026-06-11T23:12:07Z -->
+
+# Roblox Engine API Reference
+
+> Luau API reference for all Roblox engine classes, datatypes, enums, globals, and libraries.
+> Use this index to discover specific API pages. Each link points to a detailed .md file.
+
+- Base URL: https://create.roblox.com
+- Full docs (all topics): /docs/llms.txt
+- Deprecated API inventory: /docs/reference/engine/deprecated.md
+
+---
+
+> **WRONG FILE FOR REST API REQUESTS**
+> This is the **Luau Engine API** — for writing scripts *inside* Roblox experiences (in Studio or a running game server/client).
+> - For external server-side integrations and REST API calls → use: https://create.roblox.com/docs/cloud/llms.txt
+> - For calling external URLs *from inside* a Roblox experience → use `HttpService` (listed below)
+
+---
+
+## Deprecated → Modern Replacement Quick Reference
+
+| Deprecated | Use instead |
+|-----------|-------------|
+| `BodyAngularVelocity` | `AngularVelocity` |
+| `BodyForce` | `VectorForce` |
+| `BodyGyro` | `AlignOrientation` |
+| `BodyPosition` | `AlignPosition` |
+| `BodyThrust` | `VectorForce` |
+| `BodyVelocity` | `LinearVelocity` |
+| `CustomEvent` | `BindableEvents` |
+| `CustomEventReceiver` | `BindableEvents` |
+| `delay()` | `task.delay()` |
+| `FunctionalTest` | `TestService` |
+| `Hopper` | `StarterPack` |
+| `HopperBin` | `Tool` |
+| `OpenCloudApiV1` | `HttpService` |
+| `OpenCloudService` | `HttpService` |
+| `RocketPropulsion` | `LineForce` |
+| `Rotate` | `HingeConstraint` |
+| `RotateP` | `HingeConstraint` |
+| `RotateV` | `HingeConstraint` |
+| `Skin` | `BodyColors` |
+| `spawn()` | `task.spawn()` |
+| `wait()` | `task.wait()` |
+
+Full list: /docs/reference/engine/deprecated.md
+
+---
+
+## Classes (653)
+
+- [Accessory](/docs/reference/engine/classes/Accessory.md): An item that a Character can wear.
+- [AccessoryDescription](/docs/reference/engine/classes/AccessoryDescription.md): Describes the appearance of an Accessory for the
+- [Accoutrement](/docs/reference/engine/classes/Accoutrement.md): An object that can attach to a player's character.
+- [Actor](/docs/reference/engine/classes/Actor.md): An Actor is a container for code that can be safely split into its own
+- [AdGui](/docs/reference/engine/classes/AdGui.md)
+- [AdPortal](/docs/reference/engine/classes/AdPortal.md)
+- [AdService](/docs/reference/engine/classes/AdService.md): A class that allows the display of mobile video ads.
+- [AdvancedDragger](/docs/reference/engine/classes/AdvancedDragger.md): An unfinished advanced variant of the Dragger class.
+- [AirController](/docs/reference/engine/classes/AirController.md)
+- [AlignOrientation](/docs/reference/engine/classes/AlignOrientation.md): Constraint which applies torque to align two attachments, or to align one
+- [AlignPosition](/docs/reference/engine/classes/AlignPosition.md): Constraint which applies force to move two attachments together, or to move
+- [AnalyticsService](/docs/reference/engine/classes/AnalyticsService.md): Collection of methods that allows you to track how users interact with your
+- [AngularVelocity](/docs/reference/engine/classes/AngularVelocity.md): Applies torque on an assembly to maintain a constant angular velocity.
+- [Animation](/docs/reference/engine/classes/Animation.md): References an animation asset which can be loaded by an
+- [AnimationClip](/docs/reference/engine/classes/AnimationClip.md): Represents all types of animation data that the Roblox animation system can
+- [AnimationClipProvider](/docs/reference/engine/classes/AnimationClipProvider.md): Provides functions to load and preview AnimationClips.
+- [AnimationConstraint](/docs/reference/engine/classes/AnimationConstraint.md): Aligns two BaseParts with an animate-able kinematic or
+- [AnimationController](/docs/reference/engine/classes/AnimationController.md): Allows animations to be loaded and applied to a character or model in place of
+- [AnimationFromVideoCreatorService](/docs/reference/engine/classes/AnimationFromVideoCreatorService.md)
+- [AnimationNodeDefinition](/docs/reference/engine/classes/AnimationNodeDefinition.md)
+- [AnimationRigData](/docs/reference/engine/classes/AnimationRigData.md): Used to store information regarding the model an animation was authored for.
+- [AnimationTrack](/docs/reference/engine/classes/AnimationTrack.md): Controls the playback of an animation on an Animator.
+- [Animator](/docs/reference/engine/classes/Animator.md): Responsible for the playback and replication of Animations.
+- [Annotation](/docs/reference/engine/classes/Annotation.md)
+- [ArcHandles](/docs/reference/engine/classes/ArcHandles.md): The ArcHandles object places 3D arc handles around any 3D object that
+- [AssetDeliveryProxy](/docs/reference/engine/classes/AssetDeliveryProxy.md)
+- [AssetPatchSettings](/docs/reference/engine/classes/AssetPatchSettings.md)
+- [AssetService](/docs/reference/engine/classes/AssetService.md): A non-replicated service that handles asset-related queries to the Roblox web
+- [Atmosphere](/docs/reference/engine/classes/Atmosphere.md): The Atmosphere object pushes Roblox closer toward realistic
+- [AtmosphereSensor](/docs/reference/engine/classes/AtmosphereSensor.md): A SensorBase that outputs data about the
+- [Attachment](/docs/reference/engine/classes/Attachment.md): Defines a point and orientation relative to an ancestor PVInstance,
+- [AudioAnalyzer](/docs/reference/engine/classes/AudioAnalyzer.md): Takes measurements from audio streams that are connected to it via one or more
+- [AudioChannelMixer](/docs/reference/engine/classes/AudioChannelMixer.md): Combines multiple audio streams into a single, multichannel audio stream.
+- [AudioChannelSplitter](/docs/reference/engine/classes/AudioChannelSplitter.md): Splits an audio stream into component channels so that each can be processed
+- [AudioChorus](/docs/reference/engine/classes/AudioChorus.md): Makes an audio stream sound more voluminous. If applied to a single voice, it
+- [AudioCompressor](/docs/reference/engine/classes/AudioCompressor.md): Adjusts the dynamic range of input streams.
+- [AudioDeviceInput](/docs/reference/engine/classes/AudioDeviceInput.md): Produces audio streams from physical devices, such as microphones.
+- [AudioDeviceOutput](/docs/reference/engine/classes/AudioDeviceOutput.md): Accepts audio streams to be rendered out to physical hardware devices such as
+- [AudioDistortion](/docs/reference/engine/classes/AudioDistortion.md): Distorts audio streams, making them sound fuzzier, grittier, and louder.
+- [AudioEcho](/docs/reference/engine/classes/AudioEcho.md): Overlays delayed copies of audio streams.
+- [AudioEmitter](/docs/reference/engine/classes/AudioEmitter.md): Emits audio streams into the world.
+- [AudioEqualizer](/docs/reference/engine/classes/AudioEqualizer.md): Adjusts the frequency content of audio streams.
+- [AudioFader](/docs/reference/engine/classes/AudioFader.md): Adjusts the volume of audio streams.
+- [AudioFilter](/docs/reference/engine/classes/AudioFilter.md): Adjusts the frequency content of audio streams.
+- [AudioFlanger](/docs/reference/engine/classes/AudioFlanger.md): Imparts a whooshing or sweeping sound on audio streams.
+- [AudioGate](/docs/reference/engine/classes/AudioGate.md): Mutes audio streams that fall below a certain volume threshold.
+- [AudioLimiter](/docs/reference/engine/classes/AudioLimiter.md): Limits how loud audio streams are allowed to be.
+- [AudioListener](/docs/reference/engine/classes/AudioListener.md): Records an audio stream from its surrounding
+- [AudioPages](/docs/reference/engine/classes/AudioPages.md): A special version of the Pages class returned by
+- [AudioPitchShifter](/docs/reference/engine/classes/AudioPitchShifter.md): Adjusts the perceived pitch of audio streams.
+- [AudioPlayer](/docs/reference/engine/classes/AudioPlayer.md): Used to play audio assets.
+- [AudioRecorder](/docs/reference/engine/classes/AudioRecorder.md): Records audio streams in-experience.
+- [AudioReverb](/docs/reference/engine/classes/AudioReverb.md): Reverberates audio streams.
+- [AudioSearchParams](/docs/reference/engine/classes/AudioSearchParams.md): Instance to be passed to AssetService:SearchAudioAsync to search for
+- [AudioSpeechToText](/docs/reference/engine/classes/AudioSpeechToText.md): Converts spoken audio into text.
+- [AudioTextToSpeech](/docs/reference/engine/classes/AudioTextToSpeech.md): Plays text as speech audio.
+- [AudioTremolo](/docs/reference/engine/classes/AudioTremolo.md): Creates a trembling effect on a sound by varying the volume of the sound up
+- [AvatarCreationService](/docs/reference/engine/classes/AvatarCreationService.md): A service to support developer avatar creators.
+- [AvatarEditorService](/docs/reference/engine/classes/AvatarEditorService.md): A service to support developer Avatar Editors.
+- [Backpack](/docs/reference/engine/classes/Backpack.md): A container object that holds a player's inventory. Any Tool in a
+- [BackpackItem](/docs/reference/engine/classes/BackpackItem.md): BackpackItem is an abstract class for backpack items such as HopperBins and
+- [BadgeService](/docs/reference/engine/classes/BadgeService.md): Provides information on badges and awards them.
+- [BallSocketConstraint](/docs/reference/engine/classes/BallSocketConstraint.md): Forces its two attachments into the same position and allows them to freely
+- [BanHistoryPages](/docs/reference/engine/classes/BanHistoryPages.md): Returned by Players:GetBanHistoryAsync to view the entire ban and
+- [BaseCoreGuiConfiguration](/docs/reference/engine/classes/BaseCoreGuiConfiguration.md)
+- [BasePart](/docs/reference/engine/classes/BasePart.md): The abstract base class for in-world objects that physically interact.
+- [BasePlayerGui](/docs/reference/engine/classes/BasePlayerGui.md): `BasePlayerGui` is an abstract class which the GUI drawing storage classes
+- [BaseRemoteEvent](/docs/reference/engine/classes/BaseRemoteEvent.md)
+- [BaseScript](/docs/reference/engine/classes/BaseScript.md): The base class for all script objects which run automatically.
+- [BaseWrap](/docs/reference/engine/classes/BaseWrap.md)
+- [Beam](/docs/reference/engine/classes/Beam.md): Connects two Attachments by drawing a texture between them.
+- [BevelMesh](/docs/reference/engine/classes/BevelMesh.md): An abstract class that BlockMesh and CylinderMesh inherit *(deprecated)*
+- [BillboardGui](/docs/reference/engine/classes/BillboardGui.md): A container for GuiObjects that renders in 3D space facing
+- [BinaryStringValue](/docs/reference/engine/classes/BinaryStringValue.md): An internal type of StringValue object, that stores a `BinaryString`
+- [BindableEvent](/docs/reference/engine/classes/BindableEvent.md): An object which enables custom events through asynchronous one-way
+- [BindableFunction](/docs/reference/engine/classes/BindableFunction.md): An object which allows for synchronous two-way communication between scripts
+- [BlockMesh](/docs/reference/engine/classes/BlockMesh.md): The BlockMesh object applies a 'brick' mesh to the BasePart it is
+- [BloomEffect](/docs/reference/engine/classes/BloomEffect.md): Simulates the camera viewing a very bright light.
+- [BlurEffect](/docs/reference/engine/classes/BlurEffect.md): Applies a blur to the entire game world.
+- [BodyAngularVelocity](/docs/reference/engine/classes/BodyAngularVelocity.md): Applies a torque to maintain a constant angular velocity. *(deprecated)*
+- [BodyColors](/docs/reference/engine/classes/BodyColors.md): For a Humanoid character, the BodyColors will specify the colors for the
+- [BodyForce](/docs/reference/engine/classes/BodyForce.md): Applies a constant force to an object. *(deprecated)*
+- [BodyGyro](/docs/reference/engine/classes/BodyGyro.md): Applies a torque to maintain a constant orientation. *(deprecated)*
+- [BodyMover](/docs/reference/engine/classes/BodyMover.md): Base class for objects that continually exert forces to assemblies. *(deprecated)*
+- [BodyPartDescription](/docs/reference/engine/classes/BodyPartDescription.md): Describes the appearance of an avatar body part for the
+- [BodyPosition](/docs/reference/engine/classes/BodyPosition.md): Applies a force to maintain a constant position. *(deprecated)*
+- [BodyThrust](/docs/reference/engine/classes/BodyThrust.md): Applies a constant force to an object at a specific point. *(deprecated)*
+- [BodyVelocity](/docs/reference/engine/classes/BodyVelocity.md): Applies a force to maintain a constant velocity. *(deprecated)*
+- [Bone](/docs/reference/engine/classes/Bone.md): Bones are non-rendered objects that drive the movement of one or more parts
+- [BoolValue](/docs/reference/engine/classes/BoolValue.md): A container object for a single boolean value.
+- [BoxHandleAdornment](/docs/reference/engine/classes/BoxHandleAdornment.md): A box-shaped handle that can be adorned to a BasePart.
+- [BrickColorValue](/docs/reference/engine/classes/BrickColorValue.md): A container object for a single BrickColor value.
+- [BrowserService](/docs/reference/engine/classes/BrowserService.md)
+- [BubbleChatConfiguration](/docs/reference/engine/classes/BubbleChatConfiguration.md): Allows for customization of text chat bubbles through TextChatService.
+- [BubbleChatMessageProperties](/docs/reference/engine/classes/BubbleChatMessageProperties.md)
+- [BuoyancySensor](/docs/reference/engine/classes/BuoyancySensor.md): A SensorBase that outputs data about how its BasePart is
+- [CFrameValue](/docs/reference/engine/classes/CFrameValue.md): A container object for a single CFrame value.
+- [CacheableContentProvider](/docs/reference/engine/classes/CacheableContentProvider.md): A variant of the ContentProvider that caches assets that have already
+- [Camera](/docs/reference/engine/classes/Camera.md): A class which defines a view of the 3D world.
+- [CanvasGroup](/docs/reference/engine/classes/CanvasGroup.md): Blends descendants as a group with color/transparency.
+- [Capture](/docs/reference/engine/classes/Capture.md): A class which defines a piece of content, such as a screenshot or video, taken
+- [CaptureService](/docs/reference/engine/classes/CaptureService.md): A service which provides control over screenshot and video capture features.
+- [CapturesPages](/docs/reference/engine/classes/CapturesPages.md): A special version of the Pages class returned by
+- [CapturesViewConfiguration](/docs/reference/engine/classes/CapturesViewConfiguration.md)
+- [CatalogPages](/docs/reference/engine/classes/CatalogPages.md)
+- [ChangeHistoryService](/docs/reference/engine/classes/ChangeHistoryService.md): **Must** be used by plugins to communicate to Studio how to undo and redo the
+- [ChannelTabsConfiguration](/docs/reference/engine/classes/ChannelTabsConfiguration.md): Configures properties of the optional channel tabs in the default chat window.
+- [CharacterAppearance](/docs/reference/engine/classes/CharacterAppearance.md): The base class for objects that change the character's appearance, such as the
+- [CharacterMesh](/docs/reference/engine/classes/CharacterMesh.md): Modifies the appearance of an R6 body part.
+- [Chat](/docs/reference/engine/classes/Chat.md): Houses the Luau code responsible for running the legacy chat system.
+- [ChatInputBarConfiguration](/docs/reference/engine/classes/ChatInputBarConfiguration.md): Configures properties of the default chat input bar.
+- [ChatWindowConfiguration](/docs/reference/engine/classes/ChatWindowConfiguration.md): Configures properties of the default chat window.
+- [ChatWindowMessageProperties](/docs/reference/engine/classes/ChatWindowMessageProperties.md)
+- [ChorusSoundEffect](/docs/reference/engine/classes/ChorusSoundEffect.md): Makes audio more voluminous by simulating multiple voices playing the same
+- [ClickDetector](/docs/reference/engine/classes/ClickDetector.md): An object that provides user input on in-experience BaseParts
+- [ClientReplicator](/docs/reference/engine/classes/ClientReplicator.md)
+- [ClimbController](/docs/reference/engine/classes/ClimbController.md)
+- [Clothing](/docs/reference/engine/classes/Clothing.md): Clothing is the base class for the Shirt and Pants clothing
+- [Clouds](/docs/reference/engine/classes/Clouds.md): Renders realistic clouds that drift slowly across the sky.
+- [ClusterPacketCache](/docs/reference/engine/classes/ClusterPacketCache.md): An internal service meant to cache cluster packets.
+- [CollectionService](/docs/reference/engine/classes/CollectionService.md): A service which manages instance collections using assigned tags.
+- [Color3Value](/docs/reference/engine/classes/Color3Value.md): A container object for a single Color3 value.
+- [ColorCorrectionEffect](/docs/reference/engine/classes/ColorCorrectionEffect.md): Adjusts color-related properties of the rendered world like saturation, tint,
+- [ColorGradingEffect](/docs/reference/engine/classes/ColorGradingEffect.md): Modifies how color values calculated by the renderer should be converted to
+- [CommerceService](/docs/reference/engine/classes/CommerceService.md): Supports real-world purchases that you can bundle with digital benefits.
+- [CompositeValueCurve](/docs/reference/engine/classes/CompositeValueCurve.md): An animation curve that groups child FloatCurves which each
+- [CompressorSoundEffect](/docs/reference/engine/classes/CompressorSoundEffect.md): Adjusts the dynamic range of audio.
+- [ConeHandleAdornment](/docs/reference/engine/classes/ConeHandleAdornment.md): A cone-shaped handle that can be adorned to a BasePart.
+- [ConfigService](/docs/reference/engine/classes/ConfigService.md): A game service that gives access to in-experience configuration with updates
+- [ConfigSnapshot](/docs/reference/engine/classes/ConfigSnapshot.md): A snapshot of configuration values at a given version. Can be player-specific.
+- [Configuration](/docs/reference/engine/classes/Configuration.md): A container object designed to hold value objects. Makes values used in
+- [ConfigureServerService](/docs/reference/engine/classes/ConfigureServerService.md)
+- [Constraint](/docs/reference/engine/classes/Constraint.md): The base class for constraint-based objects.
+- [ContentProvider](/docs/reference/engine/classes/ContentProvider.md): Service that is used to load content, or assets, into a game.
+- [ContextActionService](/docs/reference/engine/classes/ContextActionService.md): A service used to bind user input to contextual actions.
+- [Controller](/docs/reference/engine/classes/Controller.md): The base class for controller objects, such as the HumanoidController
+- [ControllerBase](/docs/reference/engine/classes/ControllerBase.md)
+- [ControllerManager](/docs/reference/engine/classes/ControllerManager.md): Manages simulated motion control for its assigned
+- [ControllerPartSensor](/docs/reference/engine/classes/ControllerPartSensor.md): A SensorBase that outputs data about another BasePart based on
+- [ControllerSensor](/docs/reference/engine/classes/ControllerSensor.md)
+- [ControllerService](/docs/reference/engine/classes/ControllerService.md): Container class for the HumanoidController among other classes.
+- [CookiesService](/docs/reference/engine/classes/CookiesService.md): A backend service used by Roblox to control HTTP cookies. Its functions are
+- [CoreGui](/docs/reference/engine/classes/CoreGui.md): The CoreGui is a service used to store Guis created in-game by Roblox for the
+- [CoreGuiConfiguration](/docs/reference/engine/classes/CoreGuiConfiguration.md)
+- [CoreScriptDebuggingManagerHelper](/docs/reference/engine/classes/CoreScriptDebuggingManagerHelper.md)
+- [CornerWedgePart](/docs/reference/engine/classes/CornerWedgePart.md)
+- [CreatorStoreService](/docs/reference/engine/classes/CreatorStoreService.md)
+- [CurveAnimation](/docs/reference/engine/classes/CurveAnimation.md): Stores animation data in the form of curves for each individual channel to
+- [CustomEvent](/docs/reference/engine/classes/CustomEvent.md) *(deprecated)*
+- [CustomEventReceiver](/docs/reference/engine/classes/CustomEventReceiver.md) *(deprecated)*
+- [CustomLog](/docs/reference/engine/classes/CustomLog.md)
+- [CylinderHandleAdornment](/docs/reference/engine/classes/CylinderHandleAdornment.md): A cylinder-shaped handle that can be adorned to a BasePart.
+- [CylinderMesh](/docs/reference/engine/classes/CylinderMesh.md): The CylinderMesh object applies a 'cylinder' mesh to the BasePart it *(deprecated)*
+- [CylindricalConstraint](/docs/reference/engine/classes/CylindricalConstraint.md): Constrains two attachments on two parts to have a relative linear and
+- [DataModel](/docs/reference/engine/classes/DataModel.md): The root of Roblox's parent-child hierarchy. Its direct children are services,
+- [DataModelMesh](/docs/reference/engine/classes/DataModelMesh.md): The DataModelMesh is an abstract class from which mesh classes descend.
+- [DataModelSession](/docs/reference/engine/classes/DataModelSession.md)
+- [DataStore](/docs/reference/engine/classes/DataStore.md)
+- [DataStoreGetOptions](/docs/reference/engine/classes/DataStoreGetOptions.md)
+- [DataStoreIncrementOptions](/docs/reference/engine/classes/DataStoreIncrementOptions.md): Specifies additional parameters for a GlobalDataStore:IncrementAsync
+- [DataStoreInfo](/docs/reference/engine/classes/DataStoreInfo.md): Object describing data store information.
+- [DataStoreKey](/docs/reference/engine/classes/DataStoreKey.md): Object representing a key on a DataStoreKeyPages object.
+- [DataStoreKeyInfo](/docs/reference/engine/classes/DataStoreKeyInfo.md): An object specifying information about a particular version of the key.
+- [DataStoreKeyPages](/docs/reference/engine/classes/DataStoreKeyPages.md): A special type of Pages object whose pages contain
+- [DataStoreListingPages](/docs/reference/engine/classes/DataStoreListingPages.md): A special type of Pages object whose pages contain
+- [DataStoreObjectVersionInfo](/docs/reference/engine/classes/DataStoreObjectVersionInfo.md): An instance describing version information for a key.
+- [DataStoreOptions](/docs/reference/engine/classes/DataStoreOptions.md): Object used to provide additional parameters to
+- [DataStorePages](/docs/reference/engine/classes/DataStorePages.md): A Pages object that allows iteration through OrderedDataStore
+- [DataStoreService](/docs/reference/engine/classes/DataStoreService.md): A game service that gives access to persistent data storage across places in a
+- [DataStoreSetOptions](/docs/reference/engine/classes/DataStoreSetOptions.md): Specifies additional parameters for a GlobalDataStore:SetAsync call.
+- [DataStoreVersionPages](/docs/reference/engine/classes/DataStoreVersionPages.md): A special type of Pages object whose pages contain
+- [Debris](/docs/reference/engine/classes/Debris.md): Allows scheduling the guaranteed destruction of an object without yielding.
+- [DebugSettings](/docs/reference/engine/classes/DebugSettings.md): Collection of various developer-facing diagnostics information.
+- [Decal](/docs/reference/engine/classes/Decal.md): Applies an image texture to a face of a parent BasePart.
+- [DepthOfFieldEffect](/docs/reference/engine/classes/DepthOfFieldEffect.md): Simulates a camera lens by blurring parts of a scene not in focus.
+- [Dialog](/docs/reference/engine/classes/Dialog.md): Creates NPC billboard-style dialog bubbles.
+- [DialogChoice](/docs/reference/engine/classes/DialogChoice.md): Used to craft the further choices available to players who have started a
+- [DigitsRigDescription](/docs/reference/engine/classes/DigitsRigDescription.md)
+- [DistortionSoundEffect](/docs/reference/engine/classes/DistortionSoundEffect.md): Distorts audio, making it sound fuzzier and overdriven.
+- [DockWidgetPluginGui](/docs/reference/engine/classes/DockWidgetPluginGui.md)
+- [DoubleConstrainedValue](/docs/reference/engine/classes/DoubleConstrainedValue.md): An instance which is used to create a number value which can never be less *(deprecated)*
+- [DraftsService](/docs/reference/engine/classes/DraftsService.md)
+- [DragDetector](/docs/reference/engine/classes/DragDetector.md): Instance which facilitates and encourages interaction with 3D objects in an
+- [Dragger](/docs/reference/engine/classes/Dragger.md): A helper object used to create tools that can drag parts.
+- [DraggerService](/docs/reference/engine/classes/DraggerService.md)
+- [DynamicRotate](/docs/reference/engine/classes/DynamicRotate.md): The base class for classic motor joints.
+- [EchoSoundEffect](/docs/reference/engine/classes/EchoSoundEffect.md): Adds delayed repetitions of a sound with diminishing volume.
+- [EditableImage](/docs/reference/engine/classes/EditableImage.md): Object which allows for the runtime creation and manipulation of images.
+- [EditableMesh](/docs/reference/engine/classes/EditableMesh.md): Object which allows for the runtime creation and manipulation of meshes.
+- [EncodingService](/docs/reference/engine/classes/EncodingService.md): Service providing common encoding, hashing, and compression methods.
+- [EqualizerSoundEffect](/docs/reference/engine/classes/EqualizerSoundEffect.md): Controls the volume of incoming audio across three frequency ranges.
+- [EulerRotationCurve](/docs/reference/engine/classes/EulerRotationCurve.md): Represents a 3D rotation curve through a group of three
+- [ExperienceInviteOptions](/docs/reference/engine/classes/ExperienceInviteOptions.md): Used to customize a player invite prompt.
+- [ExperienceNotificationService](/docs/reference/engine/classes/ExperienceNotificationService.md): Service containing methods to validate users and prompt them to enable
+- [Explosion](/docs/reference/engine/classes/Explosion.md): Applies force to BaseParts within the explosion's
+- [FaceControls](/docs/reference/engine/classes/FaceControls.md): The FaceControls object defines a set of properties for controlling
+- [FaceInstance](/docs/reference/engine/classes/FaceInstance.md): An abstract class from which the Decal and Texture classes
+- [Feature](/docs/reference/engine/classes/Feature.md): The base class for the legacy motor system.
+- [FeatureRestrictionManager](/docs/reference/engine/classes/FeatureRestrictionManager.md)
+- [File](/docs/reference/engine/classes/File.md): An asset loaded from a file on disk.
+- [FileMesh](/docs/reference/engine/classes/FileMesh.md): The FileMesh object applies a mesh to a BasePart when parented to it.
+- [Fire](/docs/reference/engine/classes/Fire.md): A preconfigured particle emitter with the visual aesthetic of fire.
+- [Flag](/docs/reference/engine/classes/Flag.md): The Flag object helps you make 'capture the flag' style games. *(deprecated)*
+- [FlagStand](/docs/reference/engine/classes/FlagStand.md): The FlagStand object helps you make 'capture the flag' style games. *(deprecated)*
+- [FlagStandService](/docs/reference/engine/classes/FlagStandService.md): An internal service responsible for handling the now deprecated
+- [FlangeSoundEffect](/docs/reference/engine/classes/FlangeSoundEffect.md): Creates a sweeping or swooshing effect on a sound.
+- [FloatCurve](/docs/reference/engine/classes/FloatCurve.md): A sorted list of time-value pairs that define a curve. Used to animate a
+- [FloorWire](/docs/reference/engine/classes/FloorWire.md): A FloorWire attempts to make a wire from two of its properties: *(deprecated)*
+- [FluidForceSensor](/docs/reference/engine/classes/FluidForceSensor.md): A SensorBase that outputs Force,
+- [Folder](/docs/reference/engine/classes/Folder.md): A simple container used to hold and organize Roblox instances.
+- [ForceField](/docs/reference/engine/classes/ForceField.md): Protects a Humanoid from taking damage dealt through the
+- [FormFactorPart](/docs/reference/engine/classes/FormFactorPart.md): The FormFactorPart class is an abstract class. It inherits from the BasePart
+- [Frame](/docs/reference/engine/classes/Frame.md): A GuiObject that renders as a plain rectangle, generally used as a
+- [FriendPages](/docs/reference/engine/classes/FriendPages.md): A special version of Pages that contains information about a player's
+- [FriendService](/docs/reference/engine/classes/FriendService.md): An internal service which is used to send, cancel, accept and decline friend
+- [FunctionalTest](/docs/reference/engine/classes/FunctionalTest.md) *(deprecated)*
+- [GamePassService](/docs/reference/engine/classes/GamePassService.md): A service associated with the legacy game pass system. Use
+- [GameSettings](/docs/reference/engine/classes/GameSettings.md): A container for miscellaneous in-game options.
+- [GamepadService](/docs/reference/engine/classes/GamepadService.md): The GamepadService is internally responsible for handling inputs from various
+- [GeneratedFolder](/docs/reference/engine/classes/GeneratedFolder.md): A container that stores ProceduralModel generation results.
+- [GenerationService](/docs/reference/engine/classes/GenerationService.md): Service that allows developers to generate 3D objects from text prompts.
+- [GenericChallengeService](/docs/reference/engine/classes/GenericChallengeService.md)
+- [GenericSettings](/docs/reference/engine/classes/GenericSettings.md): The abstract class for settings database classes.
+- [Geometry](/docs/reference/engine/classes/Geometry.md): An internal Roblox service which cannot be used by developers.
+- [GeometryService](/docs/reference/engine/classes/GeometryService.md): Service containing geometric operations.
+- [GetTextBoundsParams](/docs/reference/engine/classes/GetTextBoundsParams.md): Use with TextService:GetTextBoundsAsync to measure the size of text.
+- [GlobalDataStore](/docs/reference/engine/classes/GlobalDataStore.md): An object that exposes methods to access a single data store.
+- [GlobalSettings](/docs/reference/engine/classes/GlobalSettings.md): Collection of menu settings for Roblox Studio.
+- [Glue](/docs/reference/engine/classes/Glue.md): Glue is a type of joint that can break when enough force is applied. *(deprecated)*
+- [GroundController](/docs/reference/engine/classes/GroundController.md)
+- [GroupService](/docs/reference/engine/classes/GroupService.md): GroupService is a service that allows developers to fetch information about a
+- [GuiBase](/docs/reference/engine/classes/GuiBase.md): GuiBase is an abstract class which most graphical user interface objects
+- [GuiBase2d](/docs/reference/engine/classes/GuiBase2d.md): An abstract class inherited by 2D GuiObjects.
+- [GuiBase3d](/docs/reference/engine/classes/GuiBase3d.md): An abstract class for 3D GUI elements that are rendered in the world.
+- [GuiButton](/docs/reference/engine/classes/GuiButton.md): An abstract class for interactive 2D user interface elements.
+- [GuiLabel](/docs/reference/engine/classes/GuiLabel.md): An abstract class for non-interactive 2D user interface elements.
+- [GuiMain](/docs/reference/engine/classes/GuiMain.md): The original name of the ScreenGui. *(deprecated)*
+- [GuiObject](/docs/reference/engine/classes/GuiObject.md): An abstract class for all 2D user interface objects.
+- [GuiService](/docs/reference/engine/classes/GuiService.md): Offers numerous properties and methods for working with
+- [GuidRegistryService](/docs/reference/engine/classes/GuidRegistryService.md): An internal service, whose functionality is not accessible to developers.
+- [HSRDataContentProvider](/docs/reference/engine/classes/HSRDataContentProvider.md)
+- [HandleAdornment](/docs/reference/engine/classes/HandleAdornment.md): An abstract class inherited by 3D handle adornments.
+- [Handles](/docs/reference/engine/classes/Handles.md): Places 3D handles around any object that its Adornee
+- [HandlesBase](/docs/reference/engine/classes/HandlesBase.md): An abstract class for Handle objects, such as ArcHandles and
+- [HapticEffect](/docs/reference/engine/classes/HapticEffect.md)
+- [HapticService](/docs/reference/engine/classes/HapticService.md): Provides haptic feedback to controllers and devices.
+- [Hat](/docs/reference/engine/classes/Hat.md) *(deprecated)*
+- [HeapProfilerService](/docs/reference/engine/classes/HeapProfilerService.md)
+- [HeightmapImporterService](/docs/reference/engine/classes/HeightmapImporterService.md)
+- [HiddenSurfaceRemovalAsset](/docs/reference/engine/classes/HiddenSurfaceRemovalAsset.md)
+- [Highlight](/docs/reference/engine/classes/Highlight.md): A visual effect which you can use to call attention to a specific object
+- [HingeConstraint](/docs/reference/engine/classes/HingeConstraint.md): Constrains its attachments to rotate about a single axis.
+- [Hint](/docs/reference/engine/classes/Hint.md): A Hint is an object that creates a small black bar at the very top of the *(deprecated)*
+- [Hole](/docs/reference/engine/classes/Hole.md) *(deprecated)*
+- [Hopper](/docs/reference/engine/classes/Hopper.md): Hopper is the original name of the StarterPack service. *(deprecated)*
+- [HopperBin](/docs/reference/engine/classes/HopperBin.md) *(deprecated)*
+- [HttpRbxApiService](/docs/reference/engine/classes/HttpRbxApiService.md): An internal service whose functionality is not available to developers.
+- [HttpService](/docs/reference/engine/classes/HttpService.md): Allows sending HTTP requests and provides various web-related and JSON
+- [Humanoid](/docs/reference/engine/classes/Humanoid.md): A special object that gives models the functionality of a character.
+- [HumanoidController](/docs/reference/engine/classes/HumanoidController.md)
+- [HumanoidDescription](/docs/reference/engine/classes/HumanoidDescription.md): Describes the appearance of a Humanoid character including body parts,
+- [HumanoidRigDescription](/docs/reference/engine/classes/HumanoidRigDescription.md)
+- [IKControl](/docs/reference/engine/classes/IKControl.md): Specifies a control to generate a procedural animation pose using Inverse
+- [ILegacyStudioBridge](/docs/reference/engine/classes/ILegacyStudioBridge.md)
+- [ImageButton](/docs/reference/engine/classes/ImageButton.md): A 2D user interface element that displays an interactive image.
+- [ImageHandleAdornment](/docs/reference/engine/classes/ImageHandleAdornment.md): An image handle that can be adorned to a BasePart.
+- [ImageLabel](/docs/reference/engine/classes/ImageLabel.md): A 2D user interface element that displays a single non-interactive image.
+- [IncrementalPatchBuilder](/docs/reference/engine/classes/IncrementalPatchBuilder.md)
+- [InputAction](/docs/reference/engine/classes/InputAction.md): Defines a gameplay action mechanic. These actions are then mapped to hardware
+- [InputBinding](/docs/reference/engine/classes/InputBinding.md): Defines which hardware binding should trigger the parent InputAction.
+- [InputContext](/docs/reference/engine/classes/InputContext.md): Collection of actions which holds related actions and defines how they
+- [InputObject](/docs/reference/engine/classes/InputObject.md): An object created when an input begins that describes a particular user input.
+- [InsertService](/docs/reference/engine/classes/InsertService.md): Used to insert assets from the Roblox website.
+- [Instance](/docs/reference/engine/classes/Instance.md): `Instance` is the base class for all classes in the Roblox class hierarchy
+- [InstanceAdornment](/docs/reference/engine/classes/InstanceAdornment.md): A base class for all objects that adorn Instance classes.
+- [InstanceFileSyncService](/docs/reference/engine/classes/InstanceFileSyncService.md): A service for interacting with file sync from a plugin.
+- [IntConstrainedValue](/docs/reference/engine/classes/IntConstrainedValue.md): An IntConstrainedValue is used to store a value which can never be less than *(deprecated)*
+- [IntValue](/docs/reference/engine/classes/IntValue.md): A container object for a single integer.
+- [IntersectOperation](/docs/reference/engine/classes/IntersectOperation.md): Result of parts that have been intersected into a single solid model.
+- [InventoryPages](/docs/reference/engine/classes/InventoryPages.md)
+- [JointInstance](/docs/reference/engine/classes/JointInstance.md): The base class for joints.
+- [JointsService](/docs/reference/engine/classes/JointsService.md): A service that stores joints created by surface connections. *(deprecated)*
+- [KeyboardService](/docs/reference/engine/classes/KeyboardService.md)
+- [Keyframe](/docs/reference/engine/classes/Keyframe.md): A Keyframe holds the Poses applied to joints in a Model
+- [KeyframeMarker](/docs/reference/engine/classes/KeyframeMarker.md): An instance meant to represent an event that will eventually be fired when a
+- [KeyframeSequence](/docs/reference/engine/classes/KeyframeSequence.md): This object stores all of the Keyframes and other data for
+- [KeyframeSequenceProvider](/docs/reference/engine/classes/KeyframeSequenceProvider.md): Provides functions to load and preview KeyframeSequence.
+- [LayerCollector](/docs/reference/engine/classes/LayerCollector.md): The base class of 2D UI containers which render GuiObjects
+- [Light](/docs/reference/engine/classes/Light.md): Light is a root class for dynamic lighting related objects.
+- [Lighting](/docs/reference/engine/classes/Lighting.md): The `Lighting` service controls global lighting in an experience. It includes
+- [LineForce](/docs/reference/engine/classes/LineForce.md): Applies a force along the theoretical line connecting its two
+- [LineHandleAdornment](/docs/reference/engine/classes/LineHandleAdornment.md): A line-shaped handle that can be adorned to a BasePart.
+- [LinearVelocity](/docs/reference/engine/classes/LinearVelocity.md): Applies force on an assembly to maintain a constant linear velocity.
+- [LocalScript](/docs/reference/engine/classes/LocalScript.md): An object that contains and runs Luau code on the client (player's device)
+- [LocalizationService](/docs/reference/engine/classes/LocalizationService.md): Handles automated translation.
+- [LocalizationTable](/docs/reference/engine/classes/LocalizationTable.md): A LocalizationTable is a database of translations. It contains source strings
+- [LogService](/docs/reference/engine/classes/LogService.md): A service that allows you to read outputted text.
+- [LoginService](/docs/reference/engine/classes/LoginService.md): An internal service whose functionality is not available to developers.
+- [LuaSettings](/docs/reference/engine/classes/LuaSettings.md)
+- [LuaSourceContainer](/docs/reference/engine/classes/LuaSourceContainer.md): The base class for all objects which contain Luau code.
+- [LuaWebService](/docs/reference/engine/classes/LuaWebService.md): An internal service, which is responsible for retrieving HTTP data from
+- [MLService](/docs/reference/engine/classes/MLService.md)
+- [MLSession](/docs/reference/engine/classes/MLSession.md)
+- [MakeupDescription](/docs/reference/engine/classes/MakeupDescription.md): Describes the appearance of a makeup item for the HumanoidDescription.
+- [ManualGlue](/docs/reference/engine/classes/ManualGlue.md): ManualGlue is a joint created in a similar manner to the ManualWeld *(deprecated)*
+- [ManualSurfaceJointInstance](/docs/reference/engine/classes/ManualSurfaceJointInstance.md): ManualSurfaceJointInstance is the base class for ManualGlue and *(deprecated)*
+- [ManualWeld](/docs/reference/engine/classes/ManualWeld.md): Holds two parts together and functions identically to Weld. *(deprecated)*
+- [MarkerCurve](/docs/reference/engine/classes/MarkerCurve.md): Represents a list of strings markers in chronological order.
+- [MarketplaceService](/docs/reference/engine/classes/MarketplaceService.md): The service responsible for in-experience transactions.
+- [MatchmakingService](/docs/reference/engine/classes/MatchmakingService.md): The service responsible for managing custom matchmaking data.
+- [MaterialService](/docs/reference/engine/classes/MaterialService.md): The game service responsible for managing materials.
+- [MaterialVariant](/docs/reference/engine/classes/MaterialVariant.md): Represent a variant of a Material.
+- [MemStorageConnection](/docs/reference/engine/classes/MemStorageConnection.md)
+- [MemStorageService](/docs/reference/engine/classes/MemStorageService.md)
+- [MemoryStoreHashMap](/docs/reference/engine/classes/MemoryStoreHashMap.md): Provides access to a hash map within MemoryStoreService.
+- [MemoryStoreHashMapPages](/docs/reference/engine/classes/MemoryStoreHashMapPages.md): A special type of Pages object whose pages contain key-value pairs
+- [MemoryStoreQueue](/docs/reference/engine/classes/MemoryStoreQueue.md): Provides access to a queue within MemoryStore.
+- [MemoryStoreService](/docs/reference/engine/classes/MemoryStoreService.md): Exposes methods to access specific primitives within MemoryStore.
+- [MemoryStoreSortedMap](/docs/reference/engine/classes/MemoryStoreSortedMap.md): Provides access to a sorted map within MemoryStoreService.
+- [MeshContentProvider](/docs/reference/engine/classes/MeshContentProvider.md): An internal Roblox service that is responsible for fetching, parsing and
+- [MeshPart](/docs/reference/engine/classes/MeshPart.md): A form of BasePart that includes a physically simulated custom mesh.
+- [Message](/docs/reference/engine/classes/Message.md): Fills the entire screen with a semi-transparent grey background, with centered *(deprecated)*
+- [MessagingService](/docs/reference/engine/classes/MessagingService.md): Allows servers of the same experience to communicate with each other.
+- [MicroProfilerService](/docs/reference/engine/classes/MicroProfilerService.md)
+- [Model](/docs/reference/engine/classes/Model.md): Models are container objects, meaning they group objects together. They are
+- [ModerationService](/docs/reference/engine/classes/ModerationService.md)
+- [ModuleScript](/docs/reference/engine/classes/ModuleScript.md): A script type that runs once when LuaGlobals.require is called with
+- [Motor](/docs/reference/engine/classes/Motor.md): Makes a movable JointInstance between two parts.
+- [Motor6D](/docs/reference/engine/classes/Motor6D.md): Creates an animatable joint between two BaseParts.
+- [MotorFeature](/docs/reference/engine/classes/MotorFeature.md) *(deprecated)*
+- [Mouse](/docs/reference/engine/classes/Mouse.md): Legacy object that contains members useful for pointer input.
+- [MouseService](/docs/reference/engine/classes/MouseService.md)
+- [MultipleDocumentInterfaceInstance](/docs/reference/engine/classes/MultipleDocumentInterfaceInstance.md)
+- [NegateOperation](/docs/reference/engine/classes/NegateOperation.md): Result of a part that has been negated for use in solid modeling.
+- [NetworkClient](/docs/reference/engine/classes/NetworkClient.md)
+- [NetworkMarker](/docs/reference/engine/classes/NetworkMarker.md): The NetworkMarker is used to tell the client when the server has finished
+- [NetworkPeer](/docs/reference/engine/classes/NetworkPeer.md): The `NetworkPeer` object is the most basic class of the network objects.
+- [NetworkReplicator](/docs/reference/engine/classes/NetworkReplicator.md): An object which handles the replication of other objects either from the
+- [NetworkServer](/docs/reference/engine/classes/NetworkServer.md)
+- [NetworkSettings](/docs/reference/engine/classes/NetworkSettings.md): Settings related to networked engine behaviors.
+- [NoCollisionConstraint](/docs/reference/engine/classes/NoCollisionConstraint.md): An instance used to prevent collisions between two specific parts.
+- [NotificationService](/docs/reference/engine/classes/NotificationService.md): An internal service which cannot be used by developers.
+- [NumberPose](/docs/reference/engine/classes/NumberPose.md): Holds the value applied to a specific FACS control.
+- [NumberValue](/docs/reference/engine/classes/NumberValue.md): A container object for a single double-precision floating point number.
+- [Object](/docs/reference/engine/classes/Object.md): `Object` is the base class for all classes in the Roblox class hierarchy.
+- [ObjectValue](/docs/reference/engine/classes/ObjectValue.md): A container object for a reference to another instance.
+- [OpenCloudApiV1](/docs/reference/engine/classes/OpenCloudApiV1.md) *(deprecated)*
+- [OpenCloudService](/docs/reference/engine/classes/OpenCloudService.md) *(deprecated)*
+- [OrderedDataStore](/docs/reference/engine/classes/OrderedDataStore.md): A GlobalDataStore that also allows for ordered data store entries.
+- [OutfitPages](/docs/reference/engine/classes/OutfitPages.md): The `OutfitPages` class is used in the case of iterating over a user's
+- [PVAdornment](/docs/reference/engine/classes/PVAdornment.md): An abstract class of which the inheritors can be adorned to objects of the
+- [PVInstance](/docs/reference/engine/classes/PVInstance.md): Abstract class for all objects that have a physical location in the world.
+- [PackageLink](/docs/reference/engine/classes/PackageLink.md): Links a DataModel instance to a corresponding asset in the cloud.
+- [PackageService](/docs/reference/engine/classes/PackageService.md)
+- [Pages](/docs/reference/engine/classes/Pages.md): An abstract class for pages objects.
+- [Pants](/docs/reference/engine/classes/Pants.md): Displays a Pants texture from the Roblox website to display on a
+- [Part](/docs/reference/engine/classes/Part.md): A common type of BasePart that comes in different primitive shapes.
+- [PartAdornment](/docs/reference/engine/classes/PartAdornment.md): An abstract class for GUI elements that are adorned to (displayed as attached
+- [PartOperation](/docs/reference/engine/classes/PartOperation.md): An abstract class that all parts based on solid modeling inherit from.
+- [PartOperationAsset](/docs/reference/engine/classes/PartOperationAsset.md): An internal service which cannot be used by developers.
+- [ParticleEmitter](/docs/reference/engine/classes/ParticleEmitter.md): A special object that emits customizable 2D particles into the world.
+- [PatchBundlerFileWatch](/docs/reference/engine/classes/PatchBundlerFileWatch.md)
+- [PatchMapping](/docs/reference/engine/classes/PatchMapping.md)
+- [Path](/docs/reference/engine/classes/Path.md): Stores the result of paths created by PathfindingService:CreatePath.
+- [Path2D](/docs/reference/engine/classes/Path2D.md)
+- [PathfindingLink](/docs/reference/engine/classes/PathfindingLink.md): Connects two locations which otherwise by default are unconnected.
+- [PathfindingModifier](/docs/reference/engine/classes/PathfindingModifier.md): Modifiers used to represent space that has a higher or lower cost to be
+- [PathfindingService](/docs/reference/engine/classes/PathfindingService.md): Used to find logical paths between two points.
+- [PermissionsService](/docs/reference/engine/classes/PermissionsService.md)
+- [PhysicsService](/docs/reference/engine/classes/PhysicsService.md)
+- [PhysicsSettings](/docs/reference/engine/classes/PhysicsSettings.md)
+- [PitchShiftSoundEffect](/docs/reference/engine/classes/PitchShiftSoundEffect.md): Adjusts the pitch of a sound without changing its playback speed.
+- [PlacesService](/docs/reference/engine/classes/PlacesService.md)
+- [Plane](/docs/reference/engine/classes/Plane.md): Constrains Attachment0 and Attachment1 such that both points lie in a plane *(deprecated)*
+- [PlaneConstraint](/docs/reference/engine/classes/PlaneConstraint.md): Moves its attachments into a position/orientation along a plane whose normal
+- [Platform](/docs/reference/engine/classes/Platform.md): Historically a form of Seat that wouldn't place the player in a
+- [Player](/docs/reference/engine/classes/Player.md): An object that represents a presently connected client to the experience.
+- [PlayerGui](/docs/reference/engine/classes/PlayerGui.md): A container that holds a player's UI.
+- [PlayerListConfiguration](/docs/reference/engine/classes/PlayerListConfiguration.md)
+- [PlayerMouse](/docs/reference/engine/classes/PlayerMouse.md): The PlayerMouse behaves identically to the Mouse object that is
+- [PlayerScripts](/docs/reference/engine/classes/PlayerScripts.md): A container for client-side scripts to be run inside Player objects
+- [PlayerViewService](/docs/reference/engine/classes/PlayerViewService.md): Provides a way to get additional information about a player's view.
+- [Players](/docs/reference/engine/classes/Players.md): A service that contains presently connected Player objects.
+- [Plugin](/docs/reference/engine/classes/Plugin.md)
+- [PluginAction](/docs/reference/engine/classes/PluginAction.md)
+- [PluginCapabilities](/docs/reference/engine/classes/PluginCapabilities.md)
+- [PluginConnection](/docs/reference/engine/classes/PluginConnection.md): Encapsulates a connection between the current data model and another for
+- [PluginConnectionService](/docs/reference/engine/classes/PluginConnectionService.md): This service is used by plugins to communicate with other instances of
+- [PluginDebugService](/docs/reference/engine/classes/PluginDebugService.md)
+- [PluginDragEvent](/docs/reference/engine/classes/PluginDragEvent.md)
+- [PluginGui](/docs/reference/engine/classes/PluginGui.md)
+- [PluginGuiService](/docs/reference/engine/classes/PluginGuiService.md): A service that stores PluginGui objects to be displayed in Roblox
+- [PluginManagementService](/docs/reference/engine/classes/PluginManagementService.md)
+- [PluginManager](/docs/reference/engine/classes/PluginManager.md)
+- [PluginManagerInterface](/docs/reference/engine/classes/PluginManagerInterface.md)
+- [PluginMenu](/docs/reference/engine/classes/PluginMenu.md): A context menu that can be shown in Studio. Displays a list of
+- [PluginMouse](/docs/reference/engine/classes/PluginMouse.md): The PluginMouse object gives Plugins access to the mouse. It
+- [PluginToolbar](/docs/reference/engine/classes/PluginToolbar.md)
+- [PluginToolbarButton](/docs/reference/engine/classes/PluginToolbarButton.md)
+- [PointLight](/docs/reference/engine/classes/PointLight.md): A light source that emits illumination from a single point.
+- [PointsService](/docs/reference/engine/classes/PointsService.md): This service controls the points award system used to showcase a player's *(deprecated)*
+- [PolicyService](/docs/reference/engine/classes/PolicyService.md): Helps you query information regarding policy compliance for players around the
+- [Pose](/docs/reference/engine/classes/Pose.md): Holds the CFrame applied to the Motor6D connected to its
+- [PoseBase](/docs/reference/engine/classes/PoseBase.md): Base class of all 'Pose Instance' objects.
+- [PostEffect](/docs/reference/engine/classes/PostEffect.md): Abstract base class for post-processing effects.
+- [PrismaticConstraint](/docs/reference/engine/classes/PrismaticConstraint.md): Constraint which creates a rigid joint between two
+- [ProceduralModel](/docs/reference/engine/classes/ProceduralModel.md): Procedural models support edit-time procedural generation. Instead of manually
+- [ProcessInstancePhysicsService](/docs/reference/engine/classes/ProcessInstancePhysicsService.md)
+- [ProximityPrompt](/docs/reference/engine/classes/ProximityPrompt.md): An object that lets you prompt players to interact with an object in the 3D
+- [ProximityPromptService](/docs/reference/engine/classes/ProximityPromptService.md): Allows developers to interact with ProximityPrompt objects in a global
+- [PublishService](/docs/reference/engine/classes/PublishService.md)
+- [PyramidHandleAdornment](/docs/reference/engine/classes/PyramidHandleAdornment.md): A pyramid-shaped handle that can be adorned to a BasePart.
+- [QWidgetPluginGui](/docs/reference/engine/classes/QWidgetPluginGui.md)
+- [RayValue](/docs/reference/engine/classes/RayValue.md): A container object for a single Ray.
+- [RecommendationPages](/docs/reference/engine/classes/RecommendationPages.md): A special version of the Pages class returned by
+- [RecommendationService](/docs/reference/engine/classes/RecommendationService.md): A service that provides an interface for you to manage and display
+- [ReflectionMetadata](/docs/reference/engine/classes/ReflectionMetadata.md): A currently unused object whose functionality was split into
+- [ReflectionMetadataCallbacks](/docs/reference/engine/classes/ReflectionMetadataCallbacks.md): Acts as a Folder containing information about callbacks for a
+- [ReflectionMetadataClass](/docs/reference/engine/classes/ReflectionMetadataClass.md): Registers information about a class, and its members. Should be parented to
+- [ReflectionMetadataClasses](/docs/reference/engine/classes/ReflectionMetadataClasses.md): An internal object which cannot be used by developers.
+- [ReflectionMetadataEnum](/docs/reference/engine/classes/ReflectionMetadataEnum.md): Registers information about an Enum and its EnumItems.
+- [ReflectionMetadataEnumItem](/docs/reference/engine/classes/ReflectionMetadataEnumItem.md): Contains information about a specific EnumItem embedded within an Enum.
+- [ReflectionMetadataEnums](/docs/reference/engine/classes/ReflectionMetadataEnums.md): Acts as a Folder for ReflectionMetadataEnum objects.
+- [ReflectionMetadataEvents](/docs/reference/engine/classes/ReflectionMetadataEvents.md): Acts as a Folder containing information about events for a
+- [ReflectionMetadataFunctions](/docs/reference/engine/classes/ReflectionMetadataFunctions.md): Acts as a Folder containing information about functions for a
+- [ReflectionMetadataItem](/docs/reference/engine/classes/ReflectionMetadataItem.md): Acts as abstract properties for generic information about Classes, Members,
+- [ReflectionMetadataMember](/docs/reference/engine/classes/ReflectionMetadataMember.md): An internal object which cannot be used by developers.
+- [ReflectionMetadataProperties](/docs/reference/engine/classes/ReflectionMetadataProperties.md): Acts as a Folder containing information about properties for a
+- [ReflectionMetadataYieldFunctions](/docs/reference/engine/classes/ReflectionMetadataYieldFunctions.md): Acts as a Folder containing information about yielding functions for a
+- [ReflectionService](/docs/reference/engine/classes/ReflectionService.md)
+- [RemoteCommandService](/docs/reference/engine/classes/RemoteCommandService.md)
+- [RemoteDebuggerServer](/docs/reference/engine/classes/RemoteDebuggerServer.md)
+- [RemoteEvent](/docs/reference/engine/classes/RemoteEvent.md): An object which facilitates asynchronous, one-way communication across the
+- [RemoteFunction](/docs/reference/engine/classes/RemoteFunction.md): An object which facilitates synchronous, two-way communication across the
+- [RenderSettings](/docs/reference/engine/classes/RenderSettings.md)
+- [RenderingTest](/docs/reference/engine/classes/RenderingTest.md): An internal testing utility for the rendering pipeline.
+- [ReplicatedFirst](/docs/reference/engine/classes/ReplicatedFirst.md): A container whose contents are replicated to all clients (but not back to the
+- [ReplicatedStorage](/docs/reference/engine/classes/ReplicatedStorage.md): A container service for objects that are replicated to all clients.
+- [ReverbSoundEffect](/docs/reference/engine/classes/ReverbSoundEffect.md): Reverberates audio, simulating the effect of bouncing off walls in a room.
+- [RigidConstraint](/docs/reference/engine/classes/RigidConstraint.md): Creates a rigid connection between two Attachments or
+- [RocketPropulsion](/docs/reference/engine/classes/RocketPropulsion.md): Applies a force so that an assembly follows and faces a target part. *(deprecated)*
+- [RodConstraint](/docs/reference/engine/classes/RodConstraint.md): Keeps two attachments separated by its defined
+- [RopeConstraint](/docs/reference/engine/classes/RopeConstraint.md): Simulates rope dynamics, preventing two attachments from separating further
+- [Rotate](/docs/reference/engine/classes/Rotate.md) *(deprecated)*
+- [RotateP](/docs/reference/engine/classes/RotateP.md) *(deprecated)*
+- [RotateV](/docs/reference/engine/classes/RotateV.md) *(deprecated)*
+- [RotationCurve](/docs/reference/engine/classes/RotationCurve.md): Represents a sequence of rotations and the interpolation curve between them.
+- [RunService](/docs/reference/engine/classes/RunService.md): Service responsible for all runtime activity and progression of time.
+- [RunningAverageItemDouble](/docs/reference/engine/classes/RunningAverageItemDouble.md): Measures the runtime average of a **double** value.
+- [RunningAverageItemInt](/docs/reference/engine/classes/RunningAverageItemInt.md): Measures the runtime average of an **integer** value.
+- [RunningAverageTimeIntervalItem](/docs/reference/engine/classes/RunningAverageTimeIntervalItem.md): Measures the runtime average of a time interval value.
+- [SceneAnalysisService](/docs/reference/engine/classes/SceneAnalysisService.md)
+- [ScreenGui](/docs/reference/engine/classes/ScreenGui.md): Primary container of on-screen 2D user interface elements.
+- [ScreenshotCapture](/docs/reference/engine/classes/ScreenshotCapture.md): A child class of Capture for screenshots.
+- [ScreenshotHud](/docs/reference/engine/classes/ScreenshotHud.md): A 2D user interface that allows users to capture and save screenshots to their
+- [Script](/docs/reference/engine/classes/Script.md): An object that contains and runs Luau code on the server.
+- [ScriptBuilder](/docs/reference/engine/classes/ScriptBuilder.md)
+- [ScriptContext](/docs/reference/engine/classes/ScriptContext.md)
+- [ScriptDocument](/docs/reference/engine/classes/ScriptDocument.md)
+- [ScriptEditorService](/docs/reference/engine/classes/ScriptEditorService.md): This service is used for interacting with ScriptDocument instances.
+- [ScriptProfilerService](/docs/reference/engine/classes/ScriptProfilerService.md)
+- [ScriptService](/docs/reference/engine/classes/ScriptService.md): An unimplemented service that has zero functionality, in a similar manner to
+- [ScrollingFrame](/docs/reference/engine/classes/ScrollingFrame.md): `ScrollingFrame` is a special Frame type with built-in scrolling
+- [Seat](/docs/reference/engine/classes/Seat.md): A type of BasePart that characters can 'sit' in. When a character
+- [Selection](/docs/reference/engine/classes/Selection.md): The Selection service controls the Instances that are
+- [SelectionBox](/docs/reference/engine/classes/SelectionBox.md): Renders a 3D box around its Adornee.
+- [SelectionHighlightManager](/docs/reference/engine/classes/SelectionHighlightManager.md)
+- [SelectionLasso](/docs/reference/engine/classes/SelectionLasso.md): Abstract class for SelectionPartLasso and SelectionPartLasso.
+- [SelectionPartLasso](/docs/reference/engine/classes/SelectionPartLasso.md): An instance used to display a "lasso" between a Humanoid Torso and a *(deprecated)*
+- [SelectionPointLasso](/docs/reference/engine/classes/SelectionPointLasso.md) *(deprecated)*
+- [SelectionSphere](/docs/reference/engine/classes/SelectionSphere.md): Renders a 3D sphere around its Adornee.
+- [SelfViewConfiguration](/docs/reference/engine/classes/SelfViewConfiguration.md)
+- [SensorBase](/docs/reference/engine/classes/SensorBase.md): An abstract class for various sensor instance types.
+- [SerializationService](/docs/reference/engine/classes/SerializationService.md)
+- [ServerReplicator](/docs/reference/engine/classes/ServerReplicator.md)
+- [ServerScriptService](/docs/reference/engine/classes/ServerScriptService.md): A container service for server-only Script objects.
+- [ServerStorage](/docs/reference/engine/classes/ServerStorage.md): A container whose contents are only accessible on the server. Objects
+- [ServiceProvider](/docs/reference/engine/classes/ServiceProvider.md): A ServiceProvider is an abstract class, which stores, and provides certain
+- [ServiceVisibilityService](/docs/reference/engine/classes/ServiceVisibilityService.md)
+- [SessionCheckService](/docs/reference/engine/classes/SessionCheckService.md)
+- [SharedTableRegistry](/docs/reference/engine/classes/SharedTableRegistry.md): Provides a global registry of named SharedTable objects.
+- [Shirt](/docs/reference/engine/classes/Shirt.md): Displays a shirt texture on a Humanoid rig.
+- [ShirtGraphic](/docs/reference/engine/classes/ShirtGraphic.md): Applies a texture to the front surface of a character's torso, used to display
+- [SkateboardController](/docs/reference/engine/classes/SkateboardController.md)
+- [SkateboardPlatform](/docs/reference/engine/classes/SkateboardPlatform.md): A SkateboardPlatform can be used to create a skateboard. When characters get *(deprecated)*
+- [Skin](/docs/reference/engine/classes/Skin.md): Historically changed the colors of body parts to match the *(deprecated)*
+- [Sky](/docs/reference/engine/classes/Sky.md): Changes the default appearance of the experience's sky.
+- [SlidingBallConstraint](/docs/reference/engine/classes/SlidingBallConstraint.md): The base class for constraints that allow their attachments to slide along an
+- [SlimContentProvider](/docs/reference/engine/classes/SlimContentProvider.md)
+- [Smoke](/docs/reference/engine/classes/Smoke.md): A particle emitter with the visual aesthetic of smoke.
+- [SmoothVoxelsUpgraderService](/docs/reference/engine/classes/SmoothVoxelsUpgraderService.md)
+- [Snap](/docs/reference/engine/classes/Snap.md): Holds two parts together and functions identically to Weld. *(deprecated)*
+- [SocialService](/docs/reference/engine/classes/SocialService.md): Facilitates social functions that impact relationships made on the Roblox
+- [SolidModelContentProvider](/docs/reference/engine/classes/SolidModelContentProvider.md): An internal service which serves no functionality to developers.
+- [Sound](/docs/reference/engine/classes/Sound.md): An object that emits sound. This object can be placed within a
+- [SoundEffect](/docs/reference/engine/classes/SoundEffect.md): SoundEffect is the base class that all other sound effects derive from. A
+- [SoundGroup](/docs/reference/engine/classes/SoundGroup.md): A SoundGroup is used to manage the volume and sound effects on
+- [SoundService](/docs/reference/engine/classes/SoundService.md): A service that determines various aspects of how the audio engine works. Most
+- [Sparkles](/docs/reference/engine/classes/Sparkles.md): A particle emitter with the visual aesthetic of sparkles.
+- [SpawnLocation](/docs/reference/engine/classes/SpawnLocation.md): SpawnLocations, or "spawns" determine where a
+- [SpawnerService](/docs/reference/engine/classes/SpawnerService.md): An internal service that is responsible for the behavior of
+- [SpecialMesh](/docs/reference/engine/classes/SpecialMesh.md): The SpecialMesh object applies a mesh to a BasePart depending
+- [SphereHandleAdornment](/docs/reference/engine/classes/SphereHandleAdornment.md): A sphere-shaped handle that can be adorned to a BasePart.
+- [SpotLight](/docs/reference/engine/classes/SpotLight.md): A light source that emits light directionally in the shape of a cone with a
+- [SpringConstraint](/docs/reference/engine/classes/SpringConstraint.md): Simulates spring and damper behavior between two attachments.
+- [StandalonePluginScripts](/docs/reference/engine/classes/StandalonePluginScripts.md)
+- [StandardPages](/docs/reference/engine/classes/StandardPages.md)
+- [StarterCharacterScripts](/docs/reference/engine/classes/StarterCharacterScripts.md): Stores instances to be parented to a player's character when it spawns.
+- [StarterGear](/docs/reference/engine/classes/StarterGear.md): If the game allows gear, `StarterGear` is a container automatically inserted
+- [StarterGui](/docs/reference/engine/classes/StarterGui.md): A container for LayerCollector objects to be copied into the
+- [StarterPack](/docs/reference/engine/classes/StarterPack.md): A container whose contents are copied into each player's Backpack when
+- [StarterPlayer](/docs/reference/engine/classes/StarterPlayer.md): A service which allows the defaults of properties in the Player object
+- [StarterPlayerScripts](/docs/reference/engine/classes/StarterPlayerScripts.md): A container for objects to be copied to a Player's PlayerScripts when they
+- [StartupMessageService](/docs/reference/engine/classes/StartupMessageService.md)
+- [Stats](/docs/reference/engine/classes/Stats.md): Performance metrics for a game.
+- [StatsItem](/docs/reference/engine/classes/StatsItem.md): A single performance metric.
+- [Status](/docs/reference/engine/classes/Status.md): An unfinished object which offers no functionality to developers. *(deprecated)*
+- [StopWatchReporter](/docs/reference/engine/classes/StopWatchReporter.md)
+- [StringValue](/docs/reference/engine/classes/StringValue.md): A container object for a single string.
+- [Studio](/docs/reference/engine/classes/Studio.md)
+- [StudioCaptureService](/docs/reference/engine/classes/StudioCaptureService.md)
+- [StudioDeviceSimulatorService](/docs/reference/engine/classes/StudioDeviceSimulatorService.md): Service allowing you to control Studio's Device Simulator.
+- [StudioScreenshotCapture](/docs/reference/engine/classes/StudioScreenshotCapture.md)
+- [StudioService](/docs/reference/engine/classes/StudioService.md): Provides access to configuration of Roblox Studio and allows importing files
+- [StudioTestService](/docs/reference/engine/classes/StudioTestService.md): Service allowing plugins to automate and customize Test and Run mode testing.
+- [StudioTheme](/docs/reference/engine/classes/StudioTheme.md)
+- [StyleBase](/docs/reference/engine/classes/StyleBase.md): The base class for StyleSheet and StyleRule.
+- [StyleDerive](/docs/reference/engine/classes/StyleDerive.md): When parented to a StyleSheet, references another StyleSheet
+- [StyleLink](/docs/reference/engine/classes/StyleLink.md): Links a StyleSheet to the instance tree whose root is the parent of
+- [StyleQuery](/docs/reference/engine/classes/StyleQuery.md): Instance used to set conditions such as `"MaxSize"` and `"PreferredInput"` for
+- [StyleRule](/docs/reference/engine/classes/StyleRule.md): Defines style properties which override properties on the instances affected
+- [StyleSheet](/docs/reference/engine/classes/StyleSheet.md): Aggregates StyleRules and can be linked to DataModel
+- [SunRaysEffect](/docs/reference/engine/classes/SunRaysEffect.md): Renders dynamic rays from the sun.
+- [SurfaceAppearance](/docs/reference/engine/classes/SurfaceAppearance.md): An object that allows developers to override the appearance of a MeshPart with
+- [SurfaceGui](/docs/reference/engine/classes/SurfaceGui.md): Container for GuiObjects that are rendered on the surface of a part.
+- [SurfaceGuiBase](/docs/reference/engine/classes/SurfaceGuiBase.md)
+- [SurfaceLight](/docs/reference/engine/classes/SurfaceLight.md): A light source that emits illumination of a specified color and brightness
+- [SurfaceSelection](/docs/reference/engine/classes/SurfaceSelection.md): Highlights a face of a surface in a configurable color.
+- [SwimController](/docs/reference/engine/classes/SwimController.md)
+- [SyncScriptBuilder](/docs/reference/engine/classes/SyncScriptBuilder.md)
+- [TaskScheduler](/docs/reference/engine/classes/TaskScheduler.md): Collection of settings for the _Task Scheduler_ feature.
+- [Team](/docs/reference/engine/classes/Team.md): The Team class represents a faction in a Roblox place. The only valid
+- [TeamCreateData](/docs/reference/engine/classes/TeamCreateData.md)
+- [TeamCreateService](/docs/reference/engine/classes/TeamCreateService.md)
+- [Teams](/docs/reference/engine/classes/Teams.md): The Teams service holds a game's Team objects. Team objects
+- [TeleportAsyncResult](/docs/reference/engine/classes/TeleportAsyncResult.md): The return structure of the `TeleportAsync` function call.
+- [TeleportOptions](/docs/reference/engine/classes/TeleportOptions.md): Optional input arguments to the TeleportService:TeleportAsync
+- [TeleportService](/docs/reference/engine/classes/TeleportService.md): Enables transporting Players between places and servers. For
+- [Terrain](/docs/reference/engine/classes/Terrain.md): `Terrain` lets you to create dynamically morphable environments.
+- [TerrainDetail](/docs/reference/engine/classes/TerrainDetail.md): Determines appearance of a certain terrain face direction.
+- [TerrainRegion](/docs/reference/engine/classes/TerrainRegion.md)
+- [TestService](/docs/reference/engine/classes/TestService.md): A service used by Roblox to run controlled tests of the engine. It is
+- [TextBox](/docs/reference/engine/classes/TextBox.md): A 2D user interface element that displays player-editable text.
+- [TextBoxService](/docs/reference/engine/classes/TextBoxService.md)
+- [TextButton](/docs/reference/engine/classes/TextButton.md): A 2D user interface element that displays interactive text.
+- [TextChannel](/docs/reference/engine/classes/TextChannel.md): Represents a text chat channel.
+- [TextChatCommand](/docs/reference/engine/classes/TextChatCommand.md): Represents a text chat command.
+- [TextChatConfigurations](/docs/reference/engine/classes/TextChatConfigurations.md): The parental class of all text chat configurations.
+- [TextChatMessage](/docs/reference/engine/classes/TextChatMessage.md): A data object representing a text chat message.
+- [TextChatMessageProperties](/docs/reference/engine/classes/TextChatMessageProperties.md): Overrides TextChatMessage properties when returned by callbacks
+- [TextChatService](/docs/reference/engine/classes/TextChatService.md): A service handling in-experience text chat.
+- [TextFilterResult](/docs/reference/engine/classes/TextFilterResult.md)
+- [TextFilterTranslatedResult](/docs/reference/engine/classes/TextFilterTranslatedResult.md)
+- [TextGenerator](/docs/reference/engine/classes/TextGenerator.md): Gives access to a large language model for text generation.
+- [TextLabel](/docs/reference/engine/classes/TextLabel.md): A 2D user interface element that displays non-interactive text.
+- [TextService](/docs/reference/engine/classes/TextService.md): Service internally responsible for handling the display of text.
+- [TextSource](/docs/reference/engine/classes/TextSource.md): Represents a speaker in a TextChannel.
+- [Texture](/docs/reference/engine/classes/Texture.md): Applies a repeating image texture to the face of a parent BasePart.
+- [TimerService](/docs/reference/engine/classes/TimerService.md): An internal service responsible for scheduling timed events. It is used by the
+- [Tool](/docs/reference/engine/classes/Tool.md): An object, such as a weapon, that can be equipped by a Humanoid.
+- [Torque](/docs/reference/engine/classes/Torque.md): Applies constant torque to an assembly from its center of mass.
+- [TorsionSpringConstraint](/docs/reference/engine/classes/TorsionSpringConstraint.md): A rotational spring that opposes the angular motion between two axes.
+- [TotalCountTimeIntervalItem](/docs/reference/engine/classes/TotalCountTimeIntervalItem.md): Measures a total-count-over-time interval.
+- [TouchInputService](/docs/reference/engine/classes/TouchInputService.md): An internal service responsible for touch inputs on mobile devices.
+- [TouchTransmitter](/docs/reference/engine/classes/TouchTransmitter.md): An internal object used by networking and replication code to transmit
+- [Trail](/docs/reference/engine/classes/Trail.md): Used to create a trail effect between two attachments.
+- [Translator](/docs/reference/engine/classes/Translator.md): The role of a Translator is to manufacture/return strings localized for the
+- [TremoloSoundEffect](/docs/reference/engine/classes/TremoloSoundEffect.md): Creates a trembling effect on a sound by varying the volume of the sound up
+- [TriangleMeshPart](/docs/reference/engine/classes/TriangleMeshPart.md): Abstract intermediate class that manages physical geometry properties for
+- [TrussPart](/docs/reference/engine/classes/TrussPart.md): Similar to a Part but with a different visual
+- [Tween](/docs/reference/engine/classes/Tween.md): The Tween object controls the playback of an interpolation.
+- [TweenBase](/docs/reference/engine/classes/TweenBase.md): Abstract base class for in-between interpolation handlers. Tween
+- [TweenService](/docs/reference/engine/classes/TweenService.md): Used to create Tweens which interpolate, or tween, the
+- [UGCValidationService](/docs/reference/engine/classes/UGCValidationService.md)
+- [UIAspectRatioConstraint](/docs/reference/engine/classes/UIAspectRatioConstraint.md): Ensures the parent UI element maintains a particular aspect ratio.
+- [UIBase](/docs/reference/engine/classes/UIBase.md): UIBase is the base class for UI layout and constraint classes.
+- [UIComponent](/docs/reference/engine/classes/UIComponent.md): A base class for UI constraint and layout classes.
+- [UIConstraint](/docs/reference/engine/classes/UIConstraint.md): The base class for UI constraint classes.
+- [UICorner](/docs/reference/engine/classes/UICorner.md): UI modifier which applies deformation to corners of its parent
+- [UIDragDetector](/docs/reference/engine/classes/UIDragDetector.md): Instance which facilitates and encourages interaction with UI elements in an
+- [UIFlexItem](/docs/reference/engine/classes/UIFlexItem.md): Defines flex behavior for a GuiObject within a UIListLayout.
+- [UIGradient](/docs/reference/engine/classes/UIGradient.md): Applies a color and transparency gradient to the UI elements rendered by the
+- [UIGridLayout](/docs/reference/engine/classes/UIGridLayout.md): Positions sibling UI elements by filling rows using the space of the parent UI
+- [UIGridStyleLayout](/docs/reference/engine/classes/UIGridStyleLayout.md): The base class for grid style UI layouts.
+- [UILayout](/docs/reference/engine/classes/UILayout.md): The base class for UI layout classes.
+- [UIListLayout](/docs/reference/engine/classes/UIListLayout.md): Positions sibling UI elements in rows or columns within the parent UI
+- [UIPadding](/docs/reference/engine/classes/UIPadding.md): Applies padding to the borders of the parent GuiObject.
+- [UIPageLayout](/docs/reference/engine/classes/UIPageLayout.md)
+- [UIScale](/docs/reference/engine/classes/UIScale.md): An object that acts as a multiplier for the size of the parent UI element's
+- [UIShadow](/docs/reference/engine/classes/UIShadow.md): Renders a shadow below the parent UI instance.
+- [UISizeConstraint](/docs/reference/engine/classes/UISizeConstraint.md): Ensures a GuiObject does not become larger or smaller than the
+- [UIStroke](/docs/reference/engine/classes/UIStroke.md): Applies an outline to text or a UI border.
+- [UITableLayout](/docs/reference/engine/classes/UITableLayout.md): Lays out sibling UI elements and their child UI elements as rows/columns and
+- [UITextSizeConstraint](/docs/reference/engine/classes/UITextSizeConstraint.md): Ensures that the size of text rendered by certain GuiObject classes
+- [UnionOperation](/docs/reference/engine/classes/UnionOperation.md): Result of parts that have been joined together into a single solid model.
+- [UniqueIdLookupService](/docs/reference/engine/classes/UniqueIdLookupService.md)
+- [UniversalConstraint](/docs/reference/engine/classes/UniversalConstraint.md): Ensures two axes on two bodies remain perpendicular.
+- [UnreliableRemoteEvent](/docs/reference/engine/classes/UnreliableRemoteEvent.md): An object which facilitates asynchronous, unordered and unreliable, one-way
+- [UserGameSettings](/docs/reference/engine/classes/UserGameSettings.md): The UserGameSettings is a singleton class found inside of the
+- [UserInputService](/docs/reference/engine/classes/UserInputService.md): `UserInputService` is primarily used to detect the input types available on a
+- [UserService](/docs/reference/engine/classes/UserService.md): A service that handles queries regarding users on the Roblox platform.
+- [UserSettings](/docs/reference/engine/classes/UserSettings.md): A singleton object that houses basic user settings, which persist across all
+- [VRService](/docs/reference/engine/classes/VRService.md): Service responsible for handling interactions between Roblox and Virtual
+- [VRStatusService](/docs/reference/engine/classes/VRStatusService.md)
+- [ValueBase](/docs/reference/engine/classes/ValueBase.md): Base class of all "value instance" objects.
+- [ValueCurve](/docs/reference/engine/classes/ValueCurve.md): A sorted list of time-value pairs that define a curve. Used to animate a any
+- [Vector3Curve](/docs/reference/engine/classes/Vector3Curve.md): Represents a 3D vector curve, grouping three FloatCurve instances.
+- [Vector3Value](/docs/reference/engine/classes/Vector3Value.md): A container object for a single Vector3 value.
+- [VectorForce](/docs/reference/engine/classes/VectorForce.md): Applies constant force to an assembly.
+- [VehicleController](/docs/reference/engine/classes/VehicleController.md)
+- [VehicleSeat](/docs/reference/engine/classes/VehicleSeat.md): A seat object that can be used to control a vehicle.
+- [VelocityMotor](/docs/reference/engine/classes/VelocityMotor.md)
+- [VideoCapture](/docs/reference/engine/classes/VideoCapture.md): A child class of Capture for videos.
+- [VideoCaptureService](/docs/reference/engine/classes/VideoCaptureService.md)
+- [VideoDisplay](/docs/reference/engine/classes/VideoDisplay.md): A GUI object that displays video content from a connected VideoPlayer.
+- [VideoFrame](/docs/reference/engine/classes/VideoFrame.md): A GUI object that renders a rectangle, like a Frame does, with a
+- [VideoPlayer](/docs/reference/engine/classes/VideoPlayer.md): Used to play video assets.
+- [VideoSampler](/docs/reference/engine/classes/VideoSampler.md): An object for sampling frames from video content.
+- [VideoService](/docs/reference/engine/classes/VideoService.md): An internal service that offers no functionality to developers.
+- [ViewportFrame](/docs/reference/engine/classes/ViewportFrame.md): GuiObject that renders 3D objects inside its bounds.
+- [VirtualInput](/docs/reference/engine/classes/VirtualInput.md): Simulates mouse, keyboard, and pointer input as if it were performed by a real
+- [VirtualInputManager](/docs/reference/engine/classes/VirtualInputManager.md): An internal service that offers no functionality to developers.
+- [VirtualUser](/docs/reference/engine/classes/VirtualUser.md): VirtualUser is a service that allows you to record the inputs of a user, and
+- [VisibilityCheckDispatcher](/docs/reference/engine/classes/VisibilityCheckDispatcher.md)
+- [Visit](/docs/reference/engine/classes/Visit.md): The Visit service is a backend service used by Roblox. Its functions are not
+- [VisualizationMode](/docs/reference/engine/classes/VisualizationMode.md)
+- [VisualizationModeCategory](/docs/reference/engine/classes/VisualizationModeCategory.md)
+- [VisualizationModeService](/docs/reference/engine/classes/VisualizationModeService.md)
+- [VoiceChatService](/docs/reference/engine/classes/VoiceChatService.md): **VoiceChatService** is responsible for voice chat's high-level functionality.
+- [WebStreamClient](/docs/reference/engine/classes/WebStreamClient.md): Maintains a streaming connection.
+- [WedgePart](/docs/reference/engine/classes/WedgePart.md): A type of BasePart that has a wedge shape.
+- [Weld](/docs/reference/engine/classes/Weld.md)
+- [WeldConstraint](/docs/reference/engine/classes/WeldConstraint.md): Connects two BaseParts together such that their relative
+- [Wire](/docs/reference/engine/classes/Wire.md): Connects one or more Instances to form a processing graph of
+- [WireframeHandleAdornment](/docs/reference/engine/classes/WireframeHandleAdornment.md): Renders a wireframe adornment consisting of one or more lines onto a
+- [Workspace](/docs/reference/engine/classes/Workspace.md): `Workspace` houses 3D objects which are rendered to the 3D world. Objects not
+- [WorkspaceAnnotation](/docs/reference/engine/classes/WorkspaceAnnotation.md)
+- [WorldModel](/docs/reference/engine/classes/WorldModel.md): Extends limited physics for its children on to a parent ViewportFrame.
+- [WorldRoot](/docs/reference/engine/classes/WorldRoot.md): Base class for handling physics simulation and 3D spatial queries.
+- [WrapDeformer](/docs/reference/engine/classes/WrapDeformer.md): Allows for the real-time deformation of a MeshPart.
+- [WrapLayer](/docs/reference/engine/classes/WrapLayer.md): The WrapLayer object defines a 3D accessory's inner and outer surfaces and
+- [WrapTarget](/docs/reference/engine/classes/WrapTarget.md): The WrapTarget object defines a target. A target is the 3D body with only an
+- [WrapTextureTransfer](/docs/reference/engine/classes/WrapTextureTransfer.md): WrapTextureTransfer allows a parent Decal to be wrapped around
+
+## Datatypes (46)
+
+- [Axes](/docs/reference/engine/datatypes/Axes.md): The `Axes` data type is for the ArcHandles class to control which
+- [BrickColor](/docs/reference/engine/datatypes/BrickColor.md): A data type that provides a predefined list of named colors.
+- [CFrame](/docs/reference/engine/datatypes/CFrame.md): A data type that represents both a 3D position and orientation.
+- [CatalogSearchParams](/docs/reference/engine/datatypes/CatalogSearchParams.md): Stores parameters used in catalog searches via
+- [Color3](/docs/reference/engine/datatypes/Color3.md): A color value comprised of red, green, and blue components.
+- [ColorSequence](/docs/reference/engine/datatypes/ColorSequence.md): A gradient of color values comprised of
+- [ColorSequenceKeypoint](/docs/reference/engine/datatypes/ColorSequenceKeypoint.md): A color and time value that represents a keypoint in a
+- [Content](/docs/reference/engine/datatypes/Content.md): Represents a reference to asset content stored externally or as an object
+- [DateTime](/docs/reference/engine/datatypes/DateTime.md): A data type that represents a moment in time.
+- [DockWidgetPluginGuiInfo](/docs/reference/engine/datatypes/DockWidgetPluginGuiInfo.md): Describes details for a DockWidgetPluginGui.
+- [Enum](/docs/reference/engine/datatypes/Enum.md): A data type that represents an individual enum.
+- [EnumItem](/docs/reference/engine/datatypes/EnumItem.md): An individual item in an enum.
+- [Enums](/docs/reference/engine/datatypes/Enums.md): A root access point of all Enums.
+- [Faces](/docs/reference/engine/datatypes/Faces.md): A data type containing six booleans, each representing a face of a
+- [FloatCurveKey](/docs/reference/engine/datatypes/FloatCurveKey.md): A time-value pair used with FloatCurve instances.
+- [Font](/docs/reference/engine/datatypes/Font.md): Describes the font used to render text.
+- [Instance](/docs/reference/engine/datatypes/Instance.md): Holds the constructor for Instances.
+- [NumberRange](/docs/reference/engine/datatypes/NumberRange.md): Represents a range of numbers.
+- [NumberSequence](/docs/reference/engine/datatypes/NumberSequence.md): A series of floats across a period of time.
+- [NumberSequenceKeypoint](/docs/reference/engine/datatypes/NumberSequenceKeypoint.md): Represents keypoint within a NumberSequence with a particular time,
+- [OverlapParams](/docs/reference/engine/datatypes/OverlapParams.md): Stores parameters used in boundary-querying functions.
+- [Path2DControlPoint](/docs/reference/engine/datatypes/Path2DControlPoint.md): Stores the info for a single control point used with the Path2D
+- [PathWaypoint](/docs/reference/engine/datatypes/PathWaypoint.md): A description of the steps required to reach the next waypoint in a path.
+- [PhysicalProperties](/docs/reference/engine/datatypes/PhysicalProperties.md): Describes properties that affect the physical behavior of a BasePart.
+- [RBXScriptConnection](/docs/reference/engine/datatypes/RBXScriptConnection.md): A connection between an RBXScriptSignal and a function.
+- [RBXScriptSignal](/docs/reference/engine/datatypes/RBXScriptSignal.md): An object that runs connected functions upon a specific occurrence.
+- [Random](/docs/reference/engine/datatypes/Random.md): Generates pseudorandom numbers and directions.
+- [Ray](/docs/reference/engine/datatypes/Ray.md): Represents a line with a starting point that casts infinitely in a specific
+- [RaycastParams](/docs/reference/engine/datatypes/RaycastParams.md): A container for parameters used in raycasting operations.
+- [RaycastResult](/docs/reference/engine/datatypes/RaycastResult.md): Stores results from a raycast operation.
+- [Rect](/docs/reference/engine/datatypes/Rect.md): A value that represents a two-dimensional rectangle.
+- [Region3](/docs/reference/engine/datatypes/Region3.md): Describes a rectangular volume in 3D space.
+- [Region3int16](/docs/reference/engine/datatypes/Region3int16.md): Represents a Region3 stored as two boundaries as opposed to position and size
+- [RotationCurveKey](/docs/reference/engine/datatypes/RotationCurveKey.md): A time-value pair used with RotationCurve instances.
+- [Secret](/docs/reference/engine/datatypes/Secret.md): Stores secret non-printable content.
+- [SecurityCapabilities](/docs/reference/engine/datatypes/SecurityCapabilities.md): A set of SecurityCapability items. See
+- [SharedTable](/docs/reference/engine/datatypes/SharedTable.md): Provides sharable, table-like storage for key/value pairs.
+- [TweenInfo](/docs/reference/engine/datatypes/TweenInfo.md): Stores parameters for Tweens.
+- [UDim](/docs/reference/engine/datatypes/UDim.md): Represents a one-dimensional value with two components, a relative scale and
+- [UDim2](/docs/reference/engine/datatypes/UDim2.md): Represents a two-dimensional value where each dimension is composed of a
+- [User](/docs/reference/engine/datatypes/User.md): Represents a user's domain-scoped identity within a specific domain.
+- [ValueCurveKey](/docs/reference/engine/datatypes/ValueCurveKey.md): A time-value pair used with ValueCurve instances.
+- [Vector2](/docs/reference/engine/datatypes/Vector2.md): Represents a 2D value with direction and magnitude.
+- [Vector2int16](/docs/reference/engine/datatypes/Vector2int16.md): Represents a Vector2 with signed 16-bit integers for components.
+- [Vector3](/docs/reference/engine/datatypes/Vector3.md): Represents a 3D value with a direction and magnitude.
+- [Vector3int16](/docs/reference/engine/datatypes/Vector3int16.md): A Vector3 with signed 16-bit integers for components.
+
+## Enums (535)
+
+- [AccessModifierType](/docs/reference/engine/enums/AccessModifierType.md)
+- [AccessoryType](/docs/reference/engine/enums/AccessoryType.md): A subset of AssetTypes which are relevant to only accessories.
+- [ActionOnAutoResumeSync](/docs/reference/engine/enums/ActionOnAutoResumeSync.md)
+- [ActionOnStopSync](/docs/reference/engine/enums/ActionOnStopSync.md)
+- [ActionType](/docs/reference/engine/enums/ActionType.md)
+- [ActivePayerStatus](/docs/reference/engine/enums/ActivePayerStatus.md): Describes a player's payer status bucket for the current experience.
+- [ActuatorRelativeTo](/docs/reference/engine/enums/ActuatorRelativeTo.md): The CFrame value in which the body mover constraint is expressed.
+- [ActuatorType](/docs/reference/engine/enums/ActuatorType.md): The active physics component of the constraint.
+- [AdAvailabilityResult](/docs/reference/engine/enums/AdAvailabilityResult.md)
+- [AdEventType](/docs/reference/engine/enums/AdEventType.md)
+- [AdFormat](/docs/reference/engine/enums/AdFormat.md)
+- [AdShape](/docs/reference/engine/enums/AdShape.md): Describes the form factor of an ad in an AdGui. There is currently
+- [AdTeleportMethod](/docs/reference/engine/enums/AdTeleportMethod.md)
+- [AdUIEventType](/docs/reference/engine/enums/AdUIEventType.md)
+- [AdUIType](/docs/reference/engine/enums/AdUIType.md)
+- [AdUnitStatus](/docs/reference/engine/enums/AdUnitStatus.md): Exposes the status of an immersive ad.
+- [AdornCullingMode](/docs/reference/engine/enums/AdornCullingMode.md): Culling method used for adornments.
+- [AdornShading](/docs/reference/engine/enums/AdornShading.md)
+- [AlignType](/docs/reference/engine/enums/AlignType.md): An enum that specifies how the constraint will attempt to align the body
+- [AlphaMode](/docs/reference/engine/enums/AlphaMode.md): Used by SurfaceAppearance.AlphaMode to determine how the alpha channel
+- [AnalyticsCustomFieldKeys](/docs/reference/engine/enums/AnalyticsCustomFieldKeys.md): Used to form a dictionary of custom fields to provide breakdowns in
+- [AnalyticsEconomyAction](/docs/reference/engine/enums/AnalyticsEconomyAction.md)
+- [AnalyticsEconomyFlowType](/docs/reference/engine/enums/AnalyticsEconomyFlowType.md)
+- [AnalyticsEconomyTransactionType](/docs/reference/engine/enums/AnalyticsEconomyTransactionType.md)
+- [AnalyticsLogLevel](/docs/reference/engine/enums/AnalyticsLogLevel.md)
+- [AnalyticsProgressionStatus](/docs/reference/engine/enums/AnalyticsProgressionStatus.md): This enum is used as an argument in
+- [AnalyticsProgressionType](/docs/reference/engine/enums/AnalyticsProgressionType.md)
+- [AnimationClipFromVideoStatus](/docs/reference/engine/enums/AnimationClipFromVideoStatus.md)
+- [AnimationNodeType](/docs/reference/engine/enums/AnimationNodeType.md)
+- [AnimationPriority](/docs/reference/engine/enums/AnimationPriority.md): The AnimationPriority Enum determines how concurrently-playing AnimationTracks
+- [AnimatorRetargetingMode](/docs/reference/engine/enums/AnimatorRetargetingMode.md): Animation Retargeting setting.
+- [AnnotationEditingMode](/docs/reference/engine/enums/AnnotationEditingMode.md)
+- [AnnotationRequestStatus](/docs/reference/engine/enums/AnnotationRequestStatus.md)
+- [AnnotationRequestType](/docs/reference/engine/enums/AnnotationRequestType.md)
+- [AntiAliasing](/docs/reference/engine/enums/AntiAliasing.md): Determines whether anti-aliasing is applied when drawing on the instance.
+- [AppLifecycleManagerState](/docs/reference/engine/enums/AppLifecycleManagerState.md)
+- [AppShellActionType](/docs/reference/engine/enums/AppShellActionType.md)
+- [AppShellFeature](/docs/reference/engine/enums/AppShellFeature.md)
+- [AppUpdateStatus](/docs/reference/engine/enums/AppUpdateStatus.md)
+- [ApplyStrokeMode](/docs/reference/engine/enums/ApplyStrokeMode.md): Used by UIStroke.ApplyStrokeMode to determine where to apply the
+- [AspectType](/docs/reference/engine/enums/AspectType.md): Used by UIAspectRatioConstraint.AspectType to control sizing behavior.
+- [AssetCreatorType](/docs/reference/engine/enums/AssetCreatorType.md)
+- [AssetFetchStatus](/docs/reference/engine/enums/AssetFetchStatus.md)
+- [AssetType](/docs/reference/engine/enums/AssetType.md): This Enum can be used to match the AssetTypeId from
+- [AssetTypeVerification](/docs/reference/engine/enums/AssetTypeVerification.md): Determines the asset type verification mode.
+- [AudioApiRollout](/docs/reference/engine/enums/AudioApiRollout.md): Used to determine whether voice chat is represented and controlled by
+- [AudioCaptureMode](/docs/reference/engine/enums/AudioCaptureMode.md)
+- [AudioChannelLayout](/docs/reference/engine/enums/AudioChannelLayout.md): Describes the channel layout of an audio stream.
+- [AudioFilterType](/docs/reference/engine/enums/AudioFilterType.md): Filter types used for AudioFilter instances.
+- [AudioSimulationFidelity](/docs/reference/engine/enums/AudioSimulationFidelity.md): Enum which determines how detailed audio simulation should be for
+- [AudioSubType](/docs/reference/engine/enums/AudioSubType.md): The categorization of an audio asset.
+- [AudioWindowSize](/docs/reference/engine/enums/AudioWindowSize.md): For audio effects that use some internal buffering, determines the window-size
+- [AuthorityMode](/docs/reference/engine/enums/AuthorityMode.md): Enum used with Workspace.AuthorityMode.
+- [AutoIndentRule](/docs/reference/engine/enums/AutoIndentRule.md)
+- [AutomaticSize](/docs/reference/engine/enums/AutomaticSize.md): UI objects with AutomaticSize enabled will
+- [AvatarAssetType](/docs/reference/engine/enums/AvatarAssetType.md): Describes the asset types that an avatar can equip.
+- [AvatarChatServiceFeature](/docs/reference/engine/enums/AvatarChatServiceFeature.md)
+- [AvatarContextMenuOption](/docs/reference/engine/enums/AvatarContextMenuOption.md)
+- [AvatarItemType](/docs/reference/engine/enums/AvatarItemType.md): The type (Asset or Bundle) of avatar items.
+- [AvatarPromptResult](/docs/reference/engine/enums/AvatarPromptResult.md): The result of prompt operations of AvatarEditorService.
+- [AvatarSettingsAccessoryLimitMethod](/docs/reference/engine/enums/AvatarSettingsAccessoryLimitMethod.md)
+- [AvatarSettingsAccessoryMode](/docs/reference/engine/enums/AvatarSettingsAccessoryMode.md)
+- [AvatarSettingsAnimationClipsMode](/docs/reference/engine/enums/AvatarSettingsAnimationClipsMode.md)
+- [AvatarSettingsAnimationPacksMode](/docs/reference/engine/enums/AvatarSettingsAnimationPacksMode.md)
+- [AvatarSettingsAppearanceMode](/docs/reference/engine/enums/AvatarSettingsAppearanceMode.md)
+- [AvatarSettingsBuildMode](/docs/reference/engine/enums/AvatarSettingsBuildMode.md)
+- [AvatarSettingsClothingMode](/docs/reference/engine/enums/AvatarSettingsClothingMode.md)
+- [AvatarSettingsCollisionMode](/docs/reference/engine/enums/AvatarSettingsCollisionMode.md)
+- [AvatarSettingsCustomAccessoryMode](/docs/reference/engine/enums/AvatarSettingsCustomAccessoryMode.md)
+- [AvatarSettingsCustomBodyType](/docs/reference/engine/enums/AvatarSettingsCustomBodyType.md)
+- [AvatarSettingsCustomClothingMode](/docs/reference/engine/enums/AvatarSettingsCustomClothingMode.md)
+- [AvatarSettingsHitAndTouchDetectionMode](/docs/reference/engine/enums/AvatarSettingsHitAndTouchDetectionMode.md)
+- [AvatarSettingsJumpMode](/docs/reference/engine/enums/AvatarSettingsJumpMode.md)
+- [AvatarSettingsLegacyCollisionMode](/docs/reference/engine/enums/AvatarSettingsLegacyCollisionMode.md)
+- [AvatarSettingsScaleMode](/docs/reference/engine/enums/AvatarSettingsScaleMode.md)
+- [AvatarThumbnailCustomizationType](/docs/reference/engine/enums/AvatarThumbnailCustomizationType.md)
+- [AvatarUnificationMode](/docs/reference/engine/enums/AvatarUnificationMode.md): Controls whether the R6 to R15 adapter is active, allowing R15 avatars to join
+- [Axis](/docs/reference/engine/enums/Axis.md): One of the 3D axes.
+- [BenefitType](/docs/reference/engine/enums/BenefitType.md)
+- [BinType](/docs/reference/engine/enums/BinType.md)
+- [BodyPart](/docs/reference/engine/enums/BodyPart.md): The BodyPart Enum determines which BodyPart a CharacterMesh affects.
+- [BodyPartR15](/docs/reference/engine/enums/BodyPartR15.md): BodyPartR15 is an enum with entries for each of the 15 body parts of an R15
+- [BorderMode](/docs/reference/engine/enums/BorderMode.md): Used by GuiObject.BorderMode to determine where borders are placed.
+- [BorderStrokePosition](/docs/reference/engine/enums/BorderStrokePosition.md): Used by UIStroke.BorderStrokePosition to determine the stroke's
+- [BreakReason](/docs/reference/engine/enums/BreakReason.md): Reason for the breakpoint hit.
+- [BreakpointRemoveReason](/docs/reference/engine/enums/BreakpointRemoveReason.md): Reason that a breakpoint was removed.
+- [BulkMoveMode](/docs/reference/engine/enums/BulkMoveMode.md)
+- [BundleType](/docs/reference/engine/enums/BundleType.md): The type of a bundle of assets.
+- [Button](/docs/reference/engine/enums/Button.md): One of the buttons used by Controller.
+- [ButtonStyle](/docs/reference/engine/enums/ButtonStyle.md): Used by GuiButton.Style to set a special hardcoded appearance.
+- [CageType](/docs/reference/engine/enums/CageType.md)
+- [CameraMode](/docs/reference/engine/enums/CameraMode.md): Used to set Player.CameraMode to determine when first person and third
+- [CameraNavigationModel](/docs/reference/engine/enums/CameraNavigationModel.md)
+- [CameraPanMode](/docs/reference/engine/enums/CameraPanMode.md): The CameraPanMode Enum represents the available pan modes for
+- [CameraSpeedAdjustBinding](/docs/reference/engine/enums/CameraSpeedAdjustBinding.md)
+- [CameraType](/docs/reference/engine/enums/CameraType.md): Describes the camera behavior mode if using the default PlayerScripts.
+- [CaptureGalleryPermission](/docs/reference/engine/enums/CaptureGalleryPermission.md)
+- [CaptureType](/docs/reference/engine/enums/CaptureType.md)
+- [CatalogCategoryFilter](/docs/reference/engine/enums/CatalogCategoryFilter.md)
+- [CatalogSortAggregation](/docs/reference/engine/enums/CatalogSortAggregation.md)
+- [CatalogSortType](/docs/reference/engine/enums/CatalogSortType.md)
+- [CellBlock](/docs/reference/engine/enums/CellBlock.md)
+- [CellMaterial](/docs/reference/engine/enums/CellMaterial.md)
+- [CellOrientation](/docs/reference/engine/enums/CellOrientation.md)
+- [CenterDialogType](/docs/reference/engine/enums/CenterDialogType.md)
+- [CharacterControlMode](/docs/reference/engine/enums/CharacterControlMode.md)
+- [ChatCallbackType](/docs/reference/engine/enums/ChatCallbackType.md)
+- [ChatColor](/docs/reference/engine/enums/ChatColor.md): Describes the chat color.
+- [ChatMode](/docs/reference/engine/enums/ChatMode.md)
+- [ChatPrivacyMode](/docs/reference/engine/enums/ChatPrivacyMode.md)
+- [ChatRestrictionStatus](/docs/reference/engine/enums/ChatRestrictionStatus.md)
+- [ChatStyle](/docs/reference/engine/enums/ChatStyle.md): The ChatStyle Enum is used to set the style of Chat used in a game via
+- [ChatVersion](/docs/reference/engine/enums/ChatVersion.md): Determines whether TextChatService should be fully enabled or to allow
+- [ClientAnimatorThrottlingMode](/docs/reference/engine/enums/ClientAnimatorThrottlingMode.md): An Enum describing various animation throttling modes on clients.
+- [CloseReason](/docs/reference/engine/enums/CloseReason.md): Specifies the reason for the experience server shutdown.
+- [CollaboratorStatus](/docs/reference/engine/enums/CollaboratorStatus.md)
+- [CollisionFidelity](/docs/reference/engine/enums/CollisionFidelity.md): Determines behavior of the collision hitbox for MeshPart and
+- [CommandPermission](/docs/reference/engine/enums/CommandPermission.md)
+- [CompileTarget](/docs/reference/engine/enums/CompileTarget.md)
+- [CompletionAcceptanceBehavior](/docs/reference/engine/enums/CompletionAcceptanceBehavior.md)
+- [CompletionItemKind](/docs/reference/engine/enums/CompletionItemKind.md)
+- [CompletionItemTag](/docs/reference/engine/enums/CompletionItemTag.md): Determines the tags for completion items in
+- [CompletionTriggerKind](/docs/reference/engine/enums/CompletionTriggerKind.md)
+- [CompositeValueCurveType](/docs/reference/engine/enums/CompositeValueCurveType.md): Describes the type of value animated by a CompositeValueCurve.
+- [CompressionAlgorithm](/docs/reference/engine/enums/CompressionAlgorithm.md): A compression algorithm to use in EncodingService methods.
+- [ComputerCameraMovementMode](/docs/reference/engine/enums/ComputerCameraMovementMode.md): The camera movement mode currently in-use by the client.
+- [ComputerMovementMode](/docs/reference/engine/enums/ComputerMovementMode.md): The computer movement type in-use by the client.
+- [ConfigSnapshotErrorState](/docs/reference/engine/enums/ConfigSnapshotErrorState.md)
+- [ConnectionError](/docs/reference/engine/enums/ConnectionError.md)
+- [ConnectionState](/docs/reference/engine/enums/ConnectionState.md): Used to determine the connection state of the client to the game server.
+- [ContentSourceType](/docs/reference/engine/enums/ContentSourceType.md): The source type of a Content value.
+- [ContextActionPriority](/docs/reference/engine/enums/ContextActionPriority.md): Describes the priority of a context action.
+- [ContextActionResult](/docs/reference/engine/enums/ContextActionResult.md): Describes whether a contextual action should sink or pass input events.
+- [ControlMode](/docs/reference/engine/enums/ControlMode.md): The ControlMode Enum sets how the player is controlled.
+- [CoreGuiType](/docs/reference/engine/enums/CoreGuiType.md): Represents all available CoreGui "types" such as the Backpack
+- [CreateAssetResult](/docs/reference/engine/enums/CreateAssetResult.md)
+- [CreateContentResult](/docs/reference/engine/enums/CreateContentResult.md)
+- [CreateOutfitFailure](/docs/reference/engine/enums/CreateOutfitFailure.md)
+- [CreatorType](/docs/reference/engine/enums/CreatorType.md)
+- [CreatorTypeFilter](/docs/reference/engine/enums/CreatorTypeFilter.md)
+- [CurrencyType](/docs/reference/engine/enums/CurrencyType.md): The CurrencyType Enum is used with MarketplaceService to set the
+- [CustomCameraMode](/docs/reference/engine/enums/CustomCameraMode.md): Changes the player's camera mode.
+- [DataStoreRequestType](/docs/reference/engine/enums/DataStoreRequestType.md): Indicates the type of data store request being made.
+- [DebuggerEndReason](/docs/reference/engine/enums/DebuggerEndReason.md): Reason for the end of the debugger session.
+- [DebuggerExceptionBreakMode](/docs/reference/engine/enums/DebuggerExceptionBreakMode.md)
+- [DebuggerFrameType](/docs/reference/engine/enums/DebuggerFrameType.md): Call stack frame type.
+- [DebuggerPauseReason](/docs/reference/engine/enums/DebuggerPauseReason.md): Reason that the DataModel was paused.
+- [DebuggerStatus](/docs/reference/engine/enums/DebuggerStatus.md): Result of a debugger request.
+- [DefaultScriptSyncFileType](/docs/reference/engine/enums/DefaultScriptSyncFileType.md)
+- [DevCameraOcclusionMode](/docs/reference/engine/enums/DevCameraOcclusionMode.md): Determines how the default camera handles objects that are in-between the
+- [DevComputerCameraMovementMode](/docs/reference/engine/enums/DevComputerCameraMovementMode.md): Overwrites the player's camera movement mode setting on a computer.
+- [DevComputerMovementMode](/docs/reference/engine/enums/DevComputerMovementMode.md): Sets the movement mode of players who are playing on computers.
+- [DevTouchCameraMovementMode](/docs/reference/engine/enums/DevTouchCameraMovementMode.md): Overwrites the camera mode if the player is on a touch device.
+- [DevTouchMovementMode](/docs/reference/engine/enums/DevTouchMovementMode.md): Overrides the movement mode of players who are playing on touch-enabled
+- [DeveloperMemoryTag](/docs/reference/engine/enums/DeveloperMemoryTag.md): A memory tracking category.
+- [DeviceFeatureType](/docs/reference/engine/enums/DeviceFeatureType.md)
+- [DeviceForm](/docs/reference/engine/enums/DeviceForm.md)
+- [DeviceLevel](/docs/reference/engine/enums/DeviceLevel.md)
+- [DeviceSimulatorScalingMode](/docs/reference/engine/enums/DeviceSimulatorScalingMode.md)
+- [DeviceType](/docs/reference/engine/enums/DeviceType.md): Device category of the client.
+- [DialogBehaviorType](/docs/reference/engine/enums/DialogBehaviorType.md): Controls whether multiple people can use this dialog, or only one person at a
+- [DialogPurpose](/docs/reference/engine/enums/DialogPurpose.md): The DialogPurpose enum is used to set the icon of a Dialog.
+- [DialogTone](/docs/reference/engine/enums/DialogTone.md): Sets the Dialog.Tone of a Dialog object, which influences how
+- [DigitsRigDescriptionSide](/docs/reference/engine/enums/DigitsRigDescriptionSide.md)
+- [DisplaySize](/docs/reference/engine/enums/DisplaySize.md): This enum is used with GuiService.ViewportDisplaySize to indicate the
+- [DomainType](/docs/reference/engine/enums/DomainType.md): Specifies the type of domain that a User is scoped to.
+- [DominantAxis](/docs/reference/engine/enums/DominantAxis.md): Used by UIAspectRatioConstraint.DominantAxis for resizing the object
+- [DraftStatusCode](/docs/reference/engine/enums/DraftStatusCode.md)
+- [DragDetectorDragStyle](/docs/reference/engine/enums/DragDetectorDragStyle.md): Used with DragDetector as the paradigm to generate proposed motion,
+- [DragDetectorPermissionPolicy](/docs/reference/engine/enums/DragDetectorPermissionPolicy.md): Used to control the permission level for which players can interact with a
+- [DragDetectorResponseStyle](/docs/reference/engine/enums/DragDetectorResponseStyle.md): Describes how the clicked object will be treated once the desired motion has
+- [DraggerCoordinateSpace](/docs/reference/engine/enums/DraggerCoordinateSpace.md)
+- [DraggerMovementMode](/docs/reference/engine/enums/DraggerMovementMode.md)
+- [DraggingScrollBar](/docs/reference/engine/enums/DraggingScrollBar.md)
+- [EasingDirection](/docs/reference/engine/enums/EasingDirection.md): Enum used with TweenInfo.new to control the direction
+- [EasingStyle](/docs/reference/engine/enums/EasingStyle.md): Enum used with TweenInfo.new to control the motion of a
+- [ElasticBehavior](/docs/reference/engine/enums/ElasticBehavior.md): This enum is used by ScrollingFrame.ElasticBehavior to control when
+- [EnviromentalPhysicsThrottle](/docs/reference/engine/enums/EnviromentalPhysicsThrottle.md): Used to control the throttle rate of Roblox's physics engine.
+- [ExperienceAuthScope](/docs/reference/engine/enums/ExperienceAuthScope.md)
+- [ExperienceEventStatus](/docs/reference/engine/enums/ExperienceEventStatus.md)
+- [ExplosionType](/docs/reference/engine/enums/ExplosionType.md)
+- [ExternalEditorMode](/docs/reference/engine/enums/ExternalEditorMode.md)
+- [FACSDataLod](/docs/reference/engine/enums/FACSDataLod.md)
+- [FacialAgeEstimationResultType](/docs/reference/engine/enums/FacialAgeEstimationResultType.md)
+- [FacialAnimationStreamingState](/docs/reference/engine/enums/FacialAnimationStreamingState.md)
+- [FacsActionUnit](/docs/reference/engine/enums/FacsActionUnit.md)
+- [FieldOfViewMode](/docs/reference/engine/enums/FieldOfViewMode.md)
+- [FileMode](/docs/reference/engine/enums/FileMode.md)
+- [FileSystemWalkMode](/docs/reference/engine/enums/FileSystemWalkMode.md)
+- [FillDirection](/docs/reference/engine/enums/FillDirection.md): Used by UIGridStyleLayout.FillDirection to control which direction
+- [FilterErrorType](/docs/reference/engine/enums/FilterErrorType.md)
+- [FilterResult](/docs/reference/engine/enums/FilterResult.md): Used to determine the result of a text filter request.
+- [FinishRecordingOperation](/docs/reference/engine/enums/FinishRecordingOperation.md)
+- [FluidFidelity](/docs/reference/engine/enums/FluidFidelity.md): Determines the geometric representation used to compute aerodynamic forces.
+- [FluidForces](/docs/reference/engine/enums/FluidForces.md): Controls the enablement of aerodynamic forces on parts and assemblies in the
+- [Font](/docs/reference/engine/enums/Font.md)
+- [FontSize](/docs/reference/engine/enums/FontSize.md)
+- [FontStyle](/docs/reference/engine/enums/FontStyle.md): Describes whether a Font style is normal or italic.
+- [FontWeight](/docs/reference/engine/enums/FontWeight.md): Describes how thick a Font is.
+- [ForceLimitMode](/docs/reference/engine/enums/ForceLimitMode.md): The **ForceLimitMode** enum determines how the maximum force for a constraint
+- [FormFactor](/docs/reference/engine/enums/FormFactor.md)
+- [FrameStyle](/docs/reference/engine/enums/FrameStyle.md): Used to set the style of a Frame.
+- [FramerateManagerMode](/docs/reference/engine/enums/FramerateManagerMode.md)
+- [FriendRequestEvent](/docs/reference/engine/enums/FriendRequestEvent.md)
+- [FriendStatus](/docs/reference/engine/enums/FriendStatus.md)
+- [FunctionalTestResult](/docs/reference/engine/enums/FunctionalTestResult.md): Status of a single functional test run.
+- [GameAvatarType](/docs/reference/engine/enums/GameAvatarType.md): Value indicating which type of avatar an experience uses.
+- [GamepadType](/docs/reference/engine/enums/GamepadType.md)
+- [GearGenreSetting](/docs/reference/engine/enums/GearGenreSetting.md) *(deprecated)*
+- [GearType](/docs/reference/engine/enums/GearType.md) *(deprecated)*
+- [Genre](/docs/reference/engine/enums/Genre.md): Used to represent the type of game. *(deprecated)*
+- [GraphicsMode](/docs/reference/engine/enums/GraphicsMode.md): Used to set the graphics API that Roblox uses to render the game.
+- [GraphicsOptimizationMode](/docs/reference/engine/enums/GraphicsOptimizationMode.md)
+- [GroupMembershipStatus](/docs/reference/engine/enums/GroupMembershipStatus.md): Defines the possible outcomes of the GroupService:PromptJoinAsync
+- [GuiState](/docs/reference/engine/enums/GuiState.md)
+- [GuiType](/docs/reference/engine/enums/GuiType.md)
+- [HandlesStyle](/docs/reference/engine/enums/HandlesStyle.md)
+- [HapticEffectType](/docs/reference/engine/enums/HapticEffectType.md): Enum used alongside HapticEffect.Type.
+- [HashAlgorithm](/docs/reference/engine/enums/HashAlgorithm.md): A Cryptographic hash function to use in EncodingService methods.
+- [HighlightDepthMode](/docs/reference/engine/enums/HighlightDepthMode.md): Controls how the Highlight effect displays with respect to other
+- [HorizontalAlignment](/docs/reference/engine/enums/HorizontalAlignment.md): Used by UIGridStyleLayout.HorizontalAlignment to align the layout
+- [HoverAnimateSpeed](/docs/reference/engine/enums/HoverAnimateSpeed.md)
+- [HttpCachePolicy](/docs/reference/engine/enums/HttpCachePolicy.md)
+- [HttpCompression](/docs/reference/engine/enums/HttpCompression.md)
+- [HttpContentType](/docs/reference/engine/enums/HttpContentType.md): Specifies the value of the HTTP Content-Type header which describes the HTTP
+- [HttpError](/docs/reference/engine/enums/HttpError.md)
+- [HttpRequestType](/docs/reference/engine/enums/HttpRequestType.md)
+- [HumanoidCollisionType](/docs/reference/engine/enums/HumanoidCollisionType.md): The collision Humanoid uses.
+- [HumanoidDisplayDistanceType](/docs/reference/engine/enums/HumanoidDisplayDistanceType.md): HumanoidDisplayDistanceType determines how
+- [HumanoidHealthDisplayType](/docs/reference/engine/enums/HumanoidHealthDisplayType.md): Controls under what circumstances the Humanoid health bar is
+- [HumanoidRigType](/docs/reference/engine/enums/HumanoidRigType.md): Describes whether or not a character is using the new R15 rig, or the legacy
+- [HumanoidStateType](/docs/reference/engine/enums/HumanoidStateType.md): Describes the physics control states within the Humanoid.
+- [IKCollisionsMode](/docs/reference/engine/enums/IKCollisionsMode.md)
+- [IKControlConstraintSupport](/docs/reference/engine/enums/IKControlConstraintSupport.md): Values for Workspace.IKControlConstraintSupport. Sets the support for
+- [IKControlType](/docs/reference/engine/enums/IKControlType.md): Used on IKControl to specify their Type, to
+- [IXPLoadingStatus](/docs/reference/engine/enums/IXPLoadingStatus.md)
+- [ImageAlphaType](/docs/reference/engine/enums/ImageAlphaType.md): Enum for determining if the alpha or color is locked while combining two
+- [ImageCombineType](/docs/reference/engine/enums/ImageCombineType.md): Enum for determining how two images are combined together.
+- [InOut](/docs/reference/engine/enums/InOut.md): The InOut Enum is used to set where the object is on the side of its parent.
+- [InfoType](/docs/reference/engine/enums/InfoType.md)
+- [InitialDockState](/docs/reference/engine/enums/InitialDockState.md): Describes the initial docking state of a DockWidgetPluginGui.
+- [InputActionType](/docs/reference/engine/enums/InputActionType.md): This enum is used by InputAction.Type to determine which input data
+- [InputSink](/docs/reference/engine/enums/InputSink.md)
+- [InputType](/docs/reference/engine/enums/InputType.md): The InputType Enum controls the SurfaceInputs of Part.
+- [InstanceFileSyncStatus](/docs/reference/engine/enums/InstanceFileSyncStatus.md): Describes the file sync status of an Instance.
+- [IntermediateMeshGenerationResult](/docs/reference/engine/enums/IntermediateMeshGenerationResult.md)
+- [InterpolationThrottlingMode](/docs/reference/engine/enums/InterpolationThrottlingMode.md)
+- [InviteState](/docs/reference/engine/enums/InviteState.md): Describes a player's call invite state.
+- [ItemLineAlignment](/docs/reference/engine/enums/ItemLineAlignment.md): Used for UIListLayout.ItemLineAlignment and
+- [JoinSource](/docs/reference/engine/enums/JoinSource.md)
+- [JointCreationMode](/docs/reference/engine/enums/JointCreationMode.md): The way joints are created between two surfaces.
+- [KeyCode](/docs/reference/engine/enums/KeyCode.md): Byte keycodes that represent the key or button involved in user input.
+- [KeyInterpolationMode](/docs/reference/engine/enums/KeyInterpolationMode.md): Describes the interpolation method between two keys.
+- [KeywordFilterType](/docs/reference/engine/enums/KeywordFilterType.md): Determines if a filter is 'inclusive' or 'exclusive'.
+- [Language](/docs/reference/engine/enums/Language.md)
+- [LeftRight](/docs/reference/engine/enums/LeftRight.md): The LeftRight Enum is used to set where the object is on the side of its
+- [LexemeType](/docs/reference/engine/enums/LexemeType.md)
+- [LightingStyle](/docs/reference/engine/enums/LightingStyle.md): Enum used by Lighting.LightingStyle to indicate the artistic intent
+- [Limb](/docs/reference/engine/enums/Limb.md): Describes which limb a particular Instance belongs to (assuming the Instance
+- [LineJoinMode](/docs/reference/engine/enums/LineJoinMode.md): This enum is used by UIStroke.LineJoinMode to determine how corners
+- [ListDisplayMode](/docs/reference/engine/enums/ListDisplayMode.md): Used to set the scrolling mode of the Advanced Objects tab.
+- [ListenerLocation](/docs/reference/engine/enums/ListenerLocation.md): Enum used with SoundService.DefaultListenerLocation to determine where
+- [ListenerType](/docs/reference/engine/enums/ListenerType.md): Defines where and how the listener is positioned when picking up spatial
+- [LiveEditingAtomicUpdateResponse](/docs/reference/engine/enums/LiveEditingAtomicUpdateResponse.md)
+- [LiveEditingBroadcastMessageType](/docs/reference/engine/enums/LiveEditingBroadcastMessageType.md)
+- [LoadCharacterLayeredClothing](/docs/reference/engine/enums/LoadCharacterLayeredClothing.md): Indicates whether characters spawning into an experience will have layered
+- [LoadDynamicHeads](/docs/reference/engine/enums/LoadDynamicHeads.md)
+- [LocationType](/docs/reference/engine/enums/LocationType.md)
+- [LuauTypeCheckMode](/docs/reference/engine/enums/LuauTypeCheckMode.md): The Luau type checking mode for scripts in the experience.
+- [MakeupType](/docs/reference/engine/enums/MakeupType.md)
+- [MarketplaceBulkPurchasePromptStatus](/docs/reference/engine/enums/MarketplaceBulkPurchasePromptStatus.md): The status of the BulkPurchasePrompt after player interaction.
+- [MarketplaceItemPurchaseStatus](/docs/reference/engine/enums/MarketplaceItemPurchaseStatus.md): The status of the item purchase through MarketplaceService.
+- [MarketplaceProductType](/docs/reference/engine/enums/MarketplaceProductType.md): Indicates if an avatar item is an asset or bundle. Used with
+- [MarkupKind](/docs/reference/engine/enums/MarkupKind.md)
+- [MatchmakingType](/docs/reference/engine/enums/MatchmakingType.md): Used with DataModel.MatchmakingType to represent how players in the
+- [Material](/docs/reference/engine/enums/Material.md): Materials used for parts and/or terrain.
+- [MaterialPattern](/docs/reference/engine/enums/MaterialPattern.md): Describes the pattern of material. Affects texture tiling method.
+- [MembershipType](/docs/reference/engine/enums/MembershipType.md): The membership type of a Player.
+- [MeshPartDetailLevel](/docs/reference/engine/enums/MeshPartDetailLevel.md): The level of detail of `MeshParts` displayed in Studio.
+- [MeshPartHeadsAndAccessories](/docs/reference/engine/enums/MeshPartHeadsAndAccessories.md): Controls the Workspace.MeshPartHeadsAndAccessories feature.
+- [MeshScaleUnit](/docs/reference/engine/enums/MeshScaleUnit.md)
+- [MeshType](/docs/reference/engine/enums/MeshType.md): The MeshType Enum is used to set what type of mesh the SpecialMesh is.
+- [MessageType](/docs/reference/engine/enums/MessageType.md): Message category and severity level.
+- [ModelLevelOfDetail](/docs/reference/engine/enums/ModelLevelOfDetail.md): Controls the level of detail for Models in experiences with
+- [ModelStreamingBehavior](/docs/reference/engine/enums/ModelStreamingBehavior.md): Controls how Models are sent to clients in experiences with
+- [ModelStreamingMode](/docs/reference/engine/enums/ModelStreamingMode.md): Controls stream in and out behavior of a model.
+- [ModerationStatus](/docs/reference/engine/enums/ModerationStatus.md)
+- [ModifierKey](/docs/reference/engine/enums/ModifierKey.md)
+- [MouseBehavior](/docs/reference/engine/enums/MouseBehavior.md): Sets the user's mouse behavior.
+- [MoveState](/docs/reference/engine/enums/MoveState.md): Represents the state of a SkateboardPlatform.
+- [MuteState](/docs/reference/engine/enums/MuteState.md)
+- [NameOcclusion](/docs/reference/engine/enums/NameOcclusion.md): The NameOcclusion Enum is used to set the Humanoid.NameOcclusion
+- [NegateOperationHiddenHistory](/docs/reference/engine/enums/NegateOperationHiddenHistory.md)
+- [NetworkOwnership](/docs/reference/engine/enums/NetworkOwnership.md): Defines how simulation authority is determined for the Network Ownership
+- [NetworkStatus](/docs/reference/engine/enums/NetworkStatus.md)
+- [NoiseType](/docs/reference/engine/enums/NoiseType.md)
+- [NormalId](/docs/reference/engine/enums/NormalId.md): The NormalId Enum sets which side/face of a Part is used.
+- [NotificationButtonType](/docs/reference/engine/enums/NotificationButtonType.md)
+- [OperationType](/docs/reference/engine/enums/OperationType.md)
+- [OrientationAlignmentMode](/docs/reference/engine/enums/OrientationAlignmentMode.md): The OrientationAlignmentMode Enum is used to select the number of
+- [OutfitSource](/docs/reference/engine/enums/OutfitSource.md)
+- [OutfitType](/docs/reference/engine/enums/OutfitType.md)
+- [OutputLayoutMode](/docs/reference/engine/enums/OutputLayoutMode.md): Sets the layout mode of the output.
+- [OverrideMouseIconBehavior](/docs/reference/engine/enums/OverrideMouseIconBehavior.md): Overrides the behavior of the mouse icon to either force that it is always
+- [PackagePermission](/docs/reference/engine/enums/PackagePermission.md): Indicates the current user's or group roleset's permission to the package.
+- [PartType](/docs/reference/engine/enums/PartType.md): Controls the Part.Shape of an object.
+- [ParticleEmitterShape](/docs/reference/engine/enums/ParticleEmitterShape.md)
+- [ParticleEmitterShapeInOut](/docs/reference/engine/enums/ParticleEmitterShapeInOut.md)
+- [ParticleEmitterShapeStyle](/docs/reference/engine/enums/ParticleEmitterShapeStyle.md)
+- [ParticleFlipbookLayout](/docs/reference/engine/enums/ParticleFlipbookLayout.md): Determines the layout of the flipbook texture.
+- [ParticleFlipbookMode](/docs/reference/engine/enums/ParticleFlipbookMode.md): Determines the type of the flipbook animation.
+- [ParticleFlipbookTextureCompatible](/docs/reference/engine/enums/ParticleFlipbookTextureCompatible.md)
+- [ParticleOrientation](/docs/reference/engine/enums/ParticleOrientation.md)
+- [PathStatus](/docs/reference/engine/enums/PathStatus.md): The success of a Path generated by PathfindingService.
+- [PathWaypointAction](/docs/reference/engine/enums/PathWaypointAction.md): Describes the action to take when a PathWaypoint is reached.
+- [PathfindingUseImprovedSearch](/docs/reference/engine/enums/PathfindingUseImprovedSearch.md): Controls whether PathfindingService uses an improved search algorithm.
+- [PeoplePageLayout](/docs/reference/engine/enums/PeoplePageLayout.md)
+- [PermissionLevelShown](/docs/reference/engine/enums/PermissionLevelShown.md): Used to set the highest permission level that APIs have to have in order to be
+- [PhysicalConstraintType](/docs/reference/engine/enums/PhysicalConstraintType.md)
+- [PhysicsSimulationRate](/docs/reference/engine/enums/PhysicsSimulationRate.md)
+- [PhysicsSteppingMethod](/docs/reference/engine/enums/PhysicsSteppingMethod.md)
+- [Platform](/docs/reference/engine/enums/Platform.md): Host operating system of the client.
+- [PlaybackState](/docs/reference/engine/enums/PlaybackState.md): Describes the current state of a Tween in its
+- [PlayerActions](/docs/reference/engine/enums/PlayerActions.md): References a movement action taken by a player.
+- [PlayerCharacterDestroyBehavior](/docs/reference/engine/enums/PlayerCharacterDestroyBehavior.md): Controls destruction behavior when a player character is removed.
+- [PlayerChatType](/docs/reference/engine/enums/PlayerChatType.md): Determines the style of a chat message.
+- [PlayerDataErrorState](/docs/reference/engine/enums/PlayerDataErrorState.md)
+- [PlayerDataLoadFailureBehavior](/docs/reference/engine/enums/PlayerDataLoadFailureBehavior.md)
+- [PlayerExitReason](/docs/reference/engine/enums/PlayerExitReason.md): An enum that specifies the reason for **Players.PlayerRemoving** signal.
+- [PlayerPlatformSpenderStatus](/docs/reference/engine/enums/PlayerPlatformSpenderStatus.md): Describes a player's platform-wide spender status bucket.
+- [PluginConnectionTargetType](/docs/reference/engine/enums/PluginConnectionTargetType.md)
+- [PoseEasingDirection](/docs/reference/engine/enums/PoseEasingDirection.md): Used exclusively by Pose.EasingDirection to specify direction of the
+- [PoseEasingStyle](/docs/reference/engine/enums/PoseEasingStyle.md)
+- [PositionAlignmentMode](/docs/reference/engine/enums/PositionAlignmentMode.md): The PositionAlignmentMode Enum is used to select the number of
+- [PredictionMode](/docs/reference/engine/enums/PredictionMode.md): Enum used with RunService:SetPredictionMode to define the prediction
+- [PredictionStatus](/docs/reference/engine/enums/PredictionStatus.md): Enum used with RunService:GetPredictionStatus to check the status of
+- [PreferredInput](/docs/reference/engine/enums/PreferredInput.md): This enum is used with UserInputService.PreferredInput to indicate the
+- [PreferredTextSize](/docs/reference/engine/enums/PreferredTextSize.md): This enum is used with GuiService.PreferredTextSize to indicate the
+- [PrimalPhysicsSolver](/docs/reference/engine/enums/PrimalPhysicsSolver.md): Controls whether the experimental Primal Physics Solver is enabled.
+- [PrimitiveType](/docs/reference/engine/enums/PrimitiveType.md)
+- [PrivilegeType](/docs/reference/engine/enums/PrivilegeType.md) *(deprecated)*
+- [ProductLocationRestriction](/docs/reference/engine/enums/ProductLocationRestriction.md)
+- [ProductPurchaseChannel](/docs/reference/engine/enums/ProductPurchaseChannel.md): Enum which works with MarketplaceService to represent how the
+- [ProductPurchaseDecision](/docs/reference/engine/enums/ProductPurchaseDecision.md): The `ProductPurchaseDecisionEnum` works with MarketplaceService to
+- [PromptCreateAssetResult](/docs/reference/engine/enums/PromptCreateAssetResult.md)
+- [PromptCreateAvatarResult](/docs/reference/engine/enums/PromptCreateAvatarResult.md)
+- [PromptExperienceDetailsResult](/docs/reference/engine/enums/PromptExperienceDetailsResult.md)
+- [PromptPublishAssetResult](/docs/reference/engine/enums/PromptPublishAssetResult.md)
+- [PropertyStatus](/docs/reference/engine/enums/PropertyStatus.md)
+- [ProximityPromptExclusivity](/docs/reference/engine/enums/ProximityPromptExclusivity.md)
+- [ProximityPromptInputType](/docs/reference/engine/enums/ProximityPromptInputType.md)
+- [ProximityPromptStyle](/docs/reference/engine/enums/ProximityPromptStyle.md)
+- [QualityLevel](/docs/reference/engine/enums/QualityLevel.md): Controls the rendering quality of the game.
+- [R15CollisionType](/docs/reference/engine/enums/R15CollisionType.md): Collision behavior type for a R15 character.
+- [RaycastFilterType](/docs/reference/engine/enums/RaycastFilterType.md): Used in a RaycastParams object to determine how its
+- [ReadCapturesFromGalleryResult](/docs/reference/engine/enums/ReadCapturesFromGalleryResult.md)
+- [ReceiptDecision](/docs/reference/engine/enums/ReceiptDecision.md): `ReceiptDecision` works with MarketplaceService to indicate the
+- [ReceiptType](/docs/reference/engine/enums/ReceiptType.md): `ReceiptType` is used to work with server-sided receipt processing.
+- [RecommendationActionType](/docs/reference/engine/enums/RecommendationActionType.md)
+- [RecommendationDepartureIntent](/docs/reference/engine/enums/RecommendationDepartureIntent.md)
+- [RecommendationImpressionType](/docs/reference/engine/enums/RecommendationImpressionType.md)
+- [RecommendationItemContentType](/docs/reference/engine/enums/RecommendationItemContentType.md)
+- [RecommendationItemVisibility](/docs/reference/engine/enums/RecommendationItemVisibility.md)
+- [RecommendationPreferenceTargetType](/docs/reference/engine/enums/RecommendationPreferenceTargetType.md)
+- [RecommendationPreferenceType](/docs/reference/engine/enums/RecommendationPreferenceType.md)
+- [RejectCharacterDeletions](/docs/reference/engine/enums/RejectCharacterDeletions.md): Controls whether the server rejects client attempts to delete player
+- [RenderFidelity](/docs/reference/engine/enums/RenderFidelity.md): Determines the level of detail that solid modeled and mesh parts will be shown
+- [RenderPriority](/docs/reference/engine/enums/RenderPriority.md): A list of standard reserved values in BindToRenderStep.
+- [RenderingCacheOptimizationMode](/docs/reference/engine/enums/RenderingCacheOptimizationMode.md): Controls rendering cache optimization behavior.
+- [RenderingTestComparisonMethod](/docs/reference/engine/enums/RenderingTestComparisonMethod.md)
+- [ReplicateInstanceDestroySetting](/docs/reference/engine/enums/ReplicateInstanceDestroySetting.md): Controls how `Instance:Destroy()` calls are replicated from server to clients.
+- [ResamplerMode](/docs/reference/engine/enums/ResamplerMode.md): Determines the image filtering used.
+- [ReservedHighlightId](/docs/reference/engine/enums/ReservedHighlightId.md)
+- [RestPose](/docs/reference/engine/enums/RestPose.md)
+- [ReturnKeyType](/docs/reference/engine/enums/ReturnKeyType.md)
+- [ReverbType](/docs/reference/engine/enums/ReverbType.md): The ReverbType Enum allows you to make audio in your game sound different,
+- [RibbonTool](/docs/reference/engine/enums/RibbonTool.md)
+- [RigScale](/docs/reference/engine/enums/RigScale.md)
+- [RigType](/docs/reference/engine/enums/RigType.md): The type of rig being imported with the 3D Importer.
+- [RollOffMode](/docs/reference/engine/enums/RollOffMode.md): How Sounds parented to a BasePart or Attachment
+- [RolloutState](/docs/reference/engine/enums/RolloutState.md): A three-phase rollout state used to opt in or out of engine features.
+- [RotationOrder](/docs/reference/engine/enums/RotationOrder.md): The order of rotation axes used for Euler angles encoding of rotations.
+- [RotationType](/docs/reference/engine/enums/RotationType.md)
+- [RsvpStatus](/docs/reference/engine/enums/RsvpStatus.md)
+- [RtlTextSupport](/docs/reference/engine/enums/RtlTextSupport.md)
+- [RunContext](/docs/reference/engine/enums/RunContext.md)
+- [RunState](/docs/reference/engine/enums/RunState.md)
+- [RuntimeUndoBehavior](/docs/reference/engine/enums/RuntimeUndoBehavior.md)
+- [SafeAreaCompatibility](/docs/reference/engine/enums/SafeAreaCompatibility.md): Describes how descendants of a ScreenGui adapt to screens with
+- [SalesTypeFilter](/docs/reference/engine/enums/SalesTypeFilter.md)
+- [SandboxedInstanceMode](/docs/reference/engine/enums/SandboxedInstanceMode.md): Controls whether sandboxed instance mode (script capabilities) is enabled.
+- [SaveAvatarThumbnailCustomizationFailure](/docs/reference/engine/enums/SaveAvatarThumbnailCustomizationFailure.md)
+- [SaveFilter](/docs/reference/engine/enums/SaveFilter.md): Used by DataModel.SavePlace to determine the type of save operation *(deprecated)*
+- [SavedQualitySetting](/docs/reference/engine/enums/SavedQualitySetting.md)
+- [ScaleType](/docs/reference/engine/enums/ScaleType.md): Determines how an image (of a ImageLabel or ImageButton) is
+- [ScopeCheckResult](/docs/reference/engine/enums/ScopeCheckResult.md)
+- [ScreenInsets](/docs/reference/engine/enums/ScreenInsets.md): Insets associated with various screen safe areas.
+- [ScreenOrientation](/docs/reference/engine/enums/ScreenOrientation.md): The preference of in-game screen orientation on hand-held devices.
+- [ScrollBarInset](/docs/reference/engine/enums/ScrollBarInset.md): This enum is used with ScrollingFrame.HorizontalScrollBarInset and
+- [ScrollingDirection](/docs/reference/engine/enums/ScrollingDirection.md): This enum is used by ScrollingFrame.ScrollingDirection to specify the
+- [SecurityCapability](/docs/reference/engine/enums/SecurityCapability.md)
+- [SelectionBehavior](/docs/reference/engine/enums/SelectionBehavior.md): Customization options for gamepad selection when
+- [SelectionRenderMode](/docs/reference/engine/enums/SelectionRenderMode.md)
+- [SelfViewPosition](/docs/reference/engine/enums/SelfViewPosition.md): Defines the screen location of the current player's self view.
+- [SensorMode](/docs/reference/engine/enums/SensorMode.md)
+- [SensorUpdateType](/docs/reference/engine/enums/SensorUpdateType.md)
+- [ServerLiveEditingMode](/docs/reference/engine/enums/ServerLiveEditingMode.md)
+- [ServiceVisibility](/docs/reference/engine/enums/ServiceVisibility.md)
+- [Severity](/docs/reference/engine/enums/Severity.md)
+- [ShowAdResult](/docs/reference/engine/enums/ShowAdResult.md)
+- [SignalBehavior](/docs/reference/engine/enums/SignalBehavior.md): Determines when the engine resumes event handlers.
+- [SizeConstraint](/docs/reference/engine/enums/SizeConstraint.md): Used to constrain the scale of a GUI object.
+- [SolverConvergenceMetricType](/docs/reference/engine/enums/SolverConvergenceMetricType.md)
+- [SolverConvergenceVisualizationMode](/docs/reference/engine/enums/SolverConvergenceVisualizationMode.md)
+- [SortDirection](/docs/reference/engine/enums/SortDirection.md)
+- [SortOrder](/docs/reference/engine/enums/SortOrder.md): Used by UIGridStyleLayout.SortOrder to order the elements in the
+- [SpecialKey](/docs/reference/engine/enums/SpecialKey.md)
+- [StartCorner](/docs/reference/engine/enums/StartCorner.md): Used by UIGridLayout.StartCorner to decide where the first element is
+- [StateObjectFieldType](/docs/reference/engine/enums/StateObjectFieldType.md)
+- [Status](/docs/reference/engine/enums/Status.md): This enum was used with the unfinished Status library. *(deprecated)*
+- [StepFrequency](/docs/reference/engine/enums/StepFrequency.md): Enum used with RunService:BindToSimulation to indicate the frequency
+- [StreamOutBehavior](/docs/reference/engine/enums/StreamOutBehavior.md): Determines how content is streamed out from Player clients.
+- [StreamingIntegrityMode](/docs/reference/engine/enums/StreamingIntegrityMode.md): Determines how a user's client should handle not having enough content
+- [StreamingPauseMode](/docs/reference/engine/enums/StreamingPauseMode.md): Determines how a client should handle not having enough content streamed in to
+- [StrokeSizingMode](/docs/reference/engine/enums/StrokeSizingMode.md): Used by UIStroke.StrokeSizingMode to determine whether the stroke's
+- [StudioCaptureBufferStatus](/docs/reference/engine/enums/StudioCaptureBufferStatus.md)
+- [StudioCaptureScreenshotFormat](/docs/reference/engine/enums/StudioCaptureScreenshotFormat.md)
+- [StudioCloseMode](/docs/reference/engine/enums/StudioCloseMode.md)
+- [StudioDataModelType](/docs/reference/engine/enums/StudioDataModelType.md)
+- [StudioPlaceUpdateFailureReason](/docs/reference/engine/enums/StudioPlaceUpdateFailureReason.md)
+- [StudioScriptEditorColorCategories](/docs/reference/engine/enums/StudioScriptEditorColorCategories.md)
+- [StudioScriptEditorColorPresets](/docs/reference/engine/enums/StudioScriptEditorColorPresets.md)
+- [StudioStyleGuideColor](/docs/reference/engine/enums/StudioStyleGuideColor.md)
+- [StudioStyleGuideModifier](/docs/reference/engine/enums/StudioStyleGuideModifier.md)
+- [Style](/docs/reference/engine/enums/Style.md): The Style Enum is used to set what style of supports the TrussPart
+- [SubscriptionExpirationReason](/docs/reference/engine/enums/SubscriptionExpirationReason.md)
+- [SubscriptionPaymentStatus](/docs/reference/engine/enums/SubscriptionPaymentStatus.md)
+- [SubscriptionPeriod](/docs/reference/engine/enums/SubscriptionPeriod.md)
+- [SubscriptionState](/docs/reference/engine/enums/SubscriptionState.md)
+- [SurfaceConstraint](/docs/reference/engine/enums/SurfaceConstraint.md): This item is deprecated and is replaced by the SurfaceType enum.
+- [SurfaceGuiShape](/docs/reference/engine/enums/SurfaceGuiShape.md)
+- [SurfaceGuiSizingMode](/docs/reference/engine/enums/SurfaceGuiSizingMode.md): Used by SurfaceGui.SizingMode to control the sizing behavior of a
+- [SurfaceType](/docs/reference/engine/enums/SurfaceType.md): Used to determine how a surface should be displayed on a part and how
+- [SwipeDirection](/docs/reference/engine/enums/SwipeDirection.md): The direction that a user is swiping on their touch screen.
+- [SystemThemeValue](/docs/reference/engine/enums/SystemThemeValue.md)
+- [TableMajorAxis](/docs/reference/engine/enums/TableMajorAxis.md): Used by UITableLayout.MajorAxis to decide whether direct siblings are
+- [TeamCreateErrorState](/docs/reference/engine/enums/TeamCreateErrorState.md)
+- [Technology](/docs/reference/engine/enums/Technology.md): Enum used by Lighting.Technology to represent the different lighting
+- [TeleportMethod](/docs/reference/engine/enums/TeleportMethod.md)
+- [TeleportResult](/docs/reference/engine/enums/TeleportResult.md): Describes the result of a teleport.
+- [TeleportState](/docs/reference/engine/enums/TeleportState.md): Determines the current teleportation state of a player.
+- [TeleportType](/docs/reference/engine/enums/TeleportType.md): Determines the type of teleport destination for a TeleportService
+- [TerrainAcquisitionMethod](/docs/reference/engine/enums/TerrainAcquisitionMethod.md)
+- [TerrainFace](/docs/reference/engine/enums/TerrainFace.md)
+- [TextChatMessageStatus](/docs/reference/engine/enums/TextChatMessageStatus.md): Indicates the status of a TextChatMessage.
+- [TextDirection](/docs/reference/engine/enums/TextDirection.md)
+- [TextFilterContext](/docs/reference/engine/enums/TextFilterContext.md)
+- [TextInputType](/docs/reference/engine/enums/TextInputType.md)
+- [TextTruncate](/docs/reference/engine/enums/TextTruncate.md): Controls the truncation of text when using the `TextTruncate` property.
+- [TextXAlignment](/docs/reference/engine/enums/TextXAlignment.md): Determines horizontal alignment of text.
+- [TextYAlignment](/docs/reference/engine/enums/TextYAlignment.md): Determines vertical alignment of text.
+- [TextureMode](/docs/reference/engine/enums/TextureMode.md): Describes how the texture of a Trail or Beam behaves.
+- [TextureQueryType](/docs/reference/engine/enums/TextureQueryType.md): Used to get memory information about textures.
+- [ThreadPoolConfig](/docs/reference/engine/enums/ThreadPoolConfig.md): Thread pooling scheme for the task scheduler.
+- [ThrottlingPriority](/docs/reference/engine/enums/ThrottlingPriority.md): Amount of throttling to apply.
+- [ThumbnailSize](/docs/reference/engine/enums/ThumbnailSize.md)
+- [ThumbnailType](/docs/reference/engine/enums/ThumbnailType.md)
+- [TickCountSampleMethod](/docs/reference/engine/enums/TickCountSampleMethod.md): Controls the precision of a timer.
+- [TonemapperPreset](/docs/reference/engine/enums/TonemapperPreset.md)
+- [TopBottom](/docs/reference/engine/enums/TopBottom.md): Sets where the object is on the side of its parent.
+- [TouchCameraMovementMode](/docs/reference/engine/enums/TouchCameraMovementMode.md): Changes the touch camera movement mode currently in-use by the client using a
+- [TouchMovementMode](/docs/reference/engine/enums/TouchMovementMode.md): The movement mode used by a client with a TouchEnabled device.
+- [TrackerError](/docs/reference/engine/enums/TrackerError.md)
+- [TrackerExtrapolationFlagMode](/docs/reference/engine/enums/TrackerExtrapolationFlagMode.md)
+- [TrackerFaceTrackingStatus](/docs/reference/engine/enums/TrackerFaceTrackingStatus.md)
+- [TrackerLodFlagMode](/docs/reference/engine/enums/TrackerLodFlagMode.md)
+- [TrackerLodValueMode](/docs/reference/engine/enums/TrackerLodValueMode.md)
+- [TrackerMode](/docs/reference/engine/enums/TrackerMode.md)
+- [TrackerPromptEvent](/docs/reference/engine/enums/TrackerPromptEvent.md)
+- [TrackerType](/docs/reference/engine/enums/TrackerType.md)
+- [TriStateBoolean](/docs/reference/engine/enums/TriStateBoolean.md)
+- [TweenStatus](/docs/reference/engine/enums/TweenStatus.md): The completion status of a GuiObject tween function.
+- [UICaptureMode](/docs/reference/engine/enums/UICaptureMode.md): Used to determine what UI elements should be captured with
+- [UIDragDetectorBoundingBehavior](/docs/reference/engine/enums/UIDragDetectorBoundingBehavior.md): Used with UIDragDetector to determine bounding behavior of the dragged
+- [UIDragDetectorDragRelativity](/docs/reference/engine/enums/UIDragDetectorDragRelativity.md): Used with DragDetector to set the paradigm which defines the
+- [UIDragDetectorDragSpace](/docs/reference/engine/enums/UIDragDetectorDragSpace.md): Used with DragDetector to set the paradigm which defines the space of
+- [UIDragDetectorDragStyle](/docs/reference/engine/enums/UIDragDetectorDragStyle.md): Used with UIDragDetector as the paradigm to generate proposed motion,
+- [UIDragDetectorResponseStyle](/docs/reference/engine/enums/UIDragDetectorResponseStyle.md): Describes how the clicked GuiObject will be treated once the desired
+- [UIDragSpeedAxisMapping](/docs/reference/engine/enums/UIDragSpeedAxisMapping.md): Used with UIDragDetector.UIDragSpeedAxisMapping to determine the
+- [UIFlexAlignment](/docs/reference/engine/enums/UIFlexAlignment.md): In a UIListLayout flex layout, specifies how to distribute extra space
+- [UIFlexMode](/docs/reference/engine/enums/UIFlexMode.md): Used with UIFlexItem.FlexMode to define how the parent
+- [UITheme](/docs/reference/engine/enums/UITheme.md)
+- [UiMessageType](/docs/reference/engine/enums/UiMessageType.md): Controls the UI message under the GuiService.
+- [UploadCaptureResult](/docs/reference/engine/enums/UploadCaptureResult.md)
+- [UsageContext](/docs/reference/engine/enums/UsageContext.md)
+- [UserCFrame](/docs/reference/engine/enums/UserCFrame.md): Determines what body part is being tracked by a VR device, and what its CFrame
+- [UserInputState](/docs/reference/engine/enums/UserInputState.md): This enum describes the state of an input that is currently or was recently
+- [UserInputType](/docs/reference/engine/enums/UserInputType.md): Describes the type of a user input event.
+- [VRComfortSetting](/docs/reference/engine/enums/VRComfortSetting.md)
+- [VRControllerModelMode](/docs/reference/engine/enums/VRControllerModelMode.md)
+- [VRDeviceType](/docs/reference/engine/enums/VRDeviceType.md)
+- [VRLaserPointerMode](/docs/reference/engine/enums/VRLaserPointerMode.md)
+- [VRSafetyBubbleMode](/docs/reference/engine/enums/VRSafetyBubbleMode.md)
+- [VRScaling](/docs/reference/engine/enums/VRScaling.md)
+- [VRSessionState](/docs/reference/engine/enums/VRSessionState.md)
+- [VRTouchpad](/docs/reference/engine/enums/VRTouchpad.md): Used to universally identify a VR touchpad that is used by either the left, or
+- [VRTouchpadMode](/docs/reference/engine/enums/VRTouchpadMode.md): Used to identify the behavior of a specified VR touchpad.
+- [VelocityConstraintMode](/docs/reference/engine/enums/VelocityConstraintMode.md): The velocity constraint mode property controls how the linear velocity of the
+- [VerticalAlignment](/docs/reference/engine/enums/VerticalAlignment.md): Used by UIGridStyleLayout.VerticalAlignment to align the layout
+- [VerticalScrollBarPosition](/docs/reference/engine/enums/VerticalScrollBarPosition.md): This enum is used for ScrollingFrame.VerticalScrollBarPosition to
+- [VibrationMotor](/docs/reference/engine/enums/VibrationMotor.md): Describes various types of haptic motor sizes and locations.
+- [VideoCaptureResult](/docs/reference/engine/enums/VideoCaptureResult.md)
+- [VideoCaptureStartedResult](/docs/reference/engine/enums/VideoCaptureStartedResult.md)
+- [VideoDeviceCaptureQuality](/docs/reference/engine/enums/VideoDeviceCaptureQuality.md)
+- [VideoError](/docs/reference/engine/enums/VideoError.md)
+- [VideoSampleSize](/docs/reference/engine/enums/VideoSampleSize.md): The size of textures produced by VideoSampler.
+- [ViewMode](/docs/reference/engine/enums/ViewMode.md)
+- [VirtualCursorMode](/docs/reference/engine/enums/VirtualCursorMode.md): Enables Virtual Cursor mode within an experience.
+- [VirtualInputMode](/docs/reference/engine/enums/VirtualInputMode.md)
+- [VoiceChatDistanceAttenuationType](/docs/reference/engine/enums/VoiceChatDistanceAttenuationType.md): Enum used for preset distance attenuation curve options in the default voice
+- [VoiceChatState](/docs/reference/engine/enums/VoiceChatState.md)
+- [VoiceControlPath](/docs/reference/engine/enums/VoiceControlPath.md)
+- [VolumetricAudio](/docs/reference/engine/enums/VolumetricAudio.md): Controls how the engine renders volumetric audio effects.
+- [WaterDirection](/docs/reference/engine/enums/WaterDirection.md): This Enum was once used to set the direction of Terrain water.
+- [WaterForce](/docs/reference/engine/enums/WaterForce.md): The WaterForce Enum is used to work with Terrain water cells.
+- [WebSocketState](/docs/reference/engine/enums/WebSocketState.md)
+- [WebStreamClientState](/docs/reference/engine/enums/WebStreamClientState.md): WebStreamClientState indicates the current state of a WebStreamClient object.
+- [WebStreamClientType](/docs/reference/engine/enums/WebStreamClientType.md): Specifies what type of streaming to use when creating a
+- [WeldConstraintPreserve](/docs/reference/engine/enums/WeldConstraintPreserve.md)
+- [WhenUserFirstPlayed](/docs/reference/engine/enums/WhenUserFirstPlayed.md): Describes when a player first played the current experience, represented as a
+- [WhisperChatPrivacyMode](/docs/reference/engine/enums/WhisperChatPrivacyMode.md)
+- [WrapLayerAutoSkin](/docs/reference/engine/enums/WrapLayerAutoSkin.md)
+- [WrapLayerDebugMode](/docs/reference/engine/enums/WrapLayerDebugMode.md): The Studio-only property for quickly visualizing and debugging meshes with
+- [WrapTargetDebugMode](/docs/reference/engine/enums/WrapTargetDebugMode.md): The Studio-only property for quickly visualizing and debugging meshes with
+- [ZIndexBehavior](/docs/reference/engine/enums/ZIndexBehavior.md): Used by LayerCollector.ZIndexBehavior to control how the
+
+## Globals (2)
+
+- [Luau globals](/docs/reference/engine/globals/LuaGlobals.md): A list of functions and variables that are native to Luau.
+- [Roblox globals](/docs/reference/engine/globals/RobloxGlobals.md): Built-in functions and constants unique to Roblox.
+
+## Libraries (11)
+
+- [bit32](/docs/reference/engine/libraries/bit32.md): A library of functions to perform bitwise operations.
+- [buffer](/docs/reference/engine/libraries/buffer.md): A library of buffer functions.
+- [coroutine](/docs/reference/engine/libraries/coroutine.md): A function that executes alongside the main thread.
+- [debug](/docs/reference/engine/libraries/debug.md): This library provides functions useful for debugging and profiling code.
+- [math](/docs/reference/engine/libraries/math.md): A library of math functions.
+- [os](/docs/reference/engine/libraries/os.md): This library provides functions related to time and date.
+- [string](/docs/reference/engine/libraries/string.md): Provides generic functions to manipulate strings.
+- [table](/docs/reference/engine/libraries/table.md): A library of table functions.
+- [task](/docs/reference/engine/libraries/task.md): Allows for functions and threads to be coordinated with the engine's
+- [utf8](/docs/reference/engine/libraries/utf8.md): This library provides basic support for `UTF-8` encoding.
+- [vector](/docs/reference/engine/libraries/vector.md): A library of vector functions.
